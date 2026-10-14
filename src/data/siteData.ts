@@ -22,7 +22,7 @@ export const siteData = {
 
   /** Business / contractor license number. Displayed in the header and footer
    *  as a trust signal. Set to an empty string to hide it. */
-  license: 'Marrakech',
+  license: '',
 
   // ── Contact ──────────────────────────────────────────────────────────────
   email: 'hello@example.com',
