@@ -120,9 +120,9 @@ export const siteData = {
 
   // ── Trust bar items (homepage strip) ─────────────────────────────────────
   trustItems: [
+    { label: 'Disponible', value: '24h/24' },
     { label: 'Toute Marrakech' },
     { label: 'Livreurs Sécurisés' },
-    { label: 'value: '30 DH','Dès' },
     { label: 'Disponible', value: '24h/24' },
   ],
 
