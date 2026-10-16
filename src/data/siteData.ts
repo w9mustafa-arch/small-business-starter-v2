@@ -122,8 +122,8 @@ export const siteData = {
   trustItems: [
     { label: 'Licensed' },
     { label: 'Fully Insured' },
-    { label: 'Years Experience', value: '15+' },
-    { label: 'Jobs Completed', value: '2,500+' },
+    { label: 'Dès', value: '30 DH' },
+    { label: 'Disponible', value: '24h/24' },
   ],
 
   // ── Footer nav columns ──────────────────────────────────────────────────
