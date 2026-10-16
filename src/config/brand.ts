@@ -16,8 +16,7 @@ export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
   name: 'LIVRAISON PLUS',
   tagline: 'Livraison rapide et fiable 24h/24 et 7j/7',
-  description:
-    'Profitez d’un service de livraison rapide et fiable à Marrakech pour vos repas, vos courses et vos médicaments, directement à votre porte, 24h/24 et 7j/7.',
+  description: 'Vos repas, courses et médicaments livrés rapidement à votre porte, partout à Marrakech.',
   url: 'https://example.com',
   locale: 'en_US',
 
