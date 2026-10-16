@@ -26,8 +26,8 @@ export const siteData = {
 
   // ── Contact ──────────────────────────────────────────────────────────────
   email: 'hello@example.com',
-  phoneForTel: '555-867-5309',
-  phoneFormatted: '(555) 867-5309',
+  phoneForTel: '+212674007161',
+  phoneFormatted: '+212 674-007161',
   address: {
     lineOne: '123 Main Street',
     lineTwo: 'Suite 100',
