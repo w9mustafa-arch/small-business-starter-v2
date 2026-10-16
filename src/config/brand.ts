@@ -14,8 +14,8 @@
 
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
-  name: 'LIVRAISON PLUS+',
-  tagline: 'Professional service you can trust.',
+  name: 'LIVRAISON PLUS',
+  tagline: 'Livreur Marrakech 24h/24 et 7j/7 – Livraison rapide et fiable',
   description:
     'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
   url: 'https://example.com',
