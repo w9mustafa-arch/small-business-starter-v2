@@ -17,7 +17,7 @@ export const brand = {
   name: 'LIVRAISON PLUS',
   tagline: 'Livraison rapide et fiable 24h/24 et 7j/7',
   description:
-    'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
+    'Profitez d’un service de livraison rapide et fiable à Marrakech pour vos repas, vos courses et vos médicaments, directement à votre porte, 24h/24 et 7j/7.',
   url: 'https://example.com',
   locale: 'en_US',
 
