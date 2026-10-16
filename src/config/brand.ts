@@ -15,7 +15,7 @@
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
   name: 'LIVRAISON PLUS',
-  tagline: 'Livraison rapide et fiable 24h/24',
+  tagline: 'Livraison rapide et fiable 24h/24 et 7j/7',
   description:
     'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
   url: 'https://example.com',
