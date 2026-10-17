@@ -62,38 +62,39 @@ export const siteData = {
   ],
 
   // ── Services ─────────────────────────────────────────────────────────────
-  services: [
+    services: [
     {
-      title: 'General Repairs',
+      title: 'Livraison de Repas & Restaurants',
       description:
-        'From leaky faucets to broken drywall, our team handles everyday repairs quickly and professionally. We diagnose the issue, explain your options, and get it fixed — no surprises on the bill.',
+        'Commandez vos plats préférés dans les restaurants de votre choix à Marrakech. Nous récupérons votre commande et vous la livrons rapidement à domicile ou au Riad.',
     },
     {
-      title: 'Installations',
+      title: 'Achat & Livraison de Courses',
       description:
-        'New fixtures, appliances, water heaters, ceiling fans, and more. We ensure every installation is up to code, properly tested, and backed by our workmanship guarantee.',
+        'Besoin de courses, fruits, légumes ou produits d’épicerie ? Envoyez-nous votre liste sur WhatsApp et notre livreur s’occupe de vos achats à Marrakech.',
     },
     {
-      title: 'Inspections',
+      title: 'Pharmacie de Garde & Urgences 24/7',
       description:
-        'Comprehensive property inspections for homebuyers, sellers, and proactive homeowners. We identify potential issues before they become expensive emergencies.',
+        'Besoin d’un médicament en urgence ? Notre service est disponible 24h/24 et 7j/7 pour récupérer vos produits de santé à la pharmacie la plus proche.',
     },
     {
-      title: 'Remodeling',
+      title: 'Livraison Riads & Hôtels',
       description:
-        'Kitchen and bathroom remodels, basement finishing, and whole-home renovations. We manage the project from design through final walkthrough so you can enjoy the transformation.',
+        'Vous êtes en séjour à Marrakech ? Profitez d’une livraison directe à l’accueil de votre Riad dans la Médina ou de votre Hôtel partout en ville.',
     },
     {
-      title: 'Emergency Service',
+      title: 'Transport Express de Colis & Plis',
       description:
-        "Burst pipes, electrical outages, and other urgent problems don't wait — and neither do we. Our emergency line is staffed 24/7 for rapid response when you need it most.",
+        'Envoi express de documents, clés ou colis d’un quartier à un autre à Marrakech. Service rapide, fiable et sécurisé pour particuliers et professionnels.',
     },
     {
-      title: 'Maintenance Plans',
+      title: 'Service Coursier Sur-Mesure',
       description:
-        'Regular preventive maintenance keeps your systems running efficiently and extends their lifespan. Ask about our seasonal service packages for year-round peace of mind.',
+        'Une course spécifique ou une demande particulière ? Contactez-nous directement sur WhatsApp pour un service adapté à vos besoins.',
     },
   ],
+
 
   // ── Reviews ──────────────────────────────────────────────────────────────
   reviews: [
