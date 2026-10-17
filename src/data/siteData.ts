@@ -63,7 +63,6 @@ export const siteData = {
 
   // ── Services ─────────────────────────────────────────────────────────────
     services: [
-    services: [
   {
     title: 'Livraison de Repas à Marrakech',
     description:
