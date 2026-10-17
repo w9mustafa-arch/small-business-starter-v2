@@ -62,51 +62,50 @@ export const siteData = {
   ],
 
   // ── Services ─────────────────────────────────────────────────────────────
-      // ── Services ─────────────────────────────────────────────────────────────
-  services: [
-    {
-      title: 'Livraison de Repas à Marrakech',
-      description:
-        'Envie d’un bon repas sans vous déplacer ? Choisissez votre restaurant préféré et faites-vous livrer à domicile, au bureau ou dans votre Riad à Marrakech.',
-      buttonText: 'Commander maintenant',
-      href: 'https://wa.me/212674007161',
-    },
-    {
-      title: 'Courses & Supermarché à Domicile',
-      description:
-        'Fruits, légumes et produits du quotidien : envoyez-nous votre liste sur WhatsApp. Nous effectuons vos achats et vous livrons directement chez vous.',
-      buttonText: 'Faire mes courses',
-      href: 'https://wa.me/212674007161',
-    },
-    {
-      title: 'Pharmacie & Livraison de Médicaments',
-      description:
-        'Besoin de médicaments ou de produits de pharmacie ? Contactez-nous sur WhatsApp pour organiser la récupération et la livraison de vos achats.',
-      buttonText: 'Commander maintenant',
-      href: 'https://wa.me/212674007161',
-    },
-    {
-      title: 'Livraison aux Riads & Hôtels',
-      description:
-        'Vous séjournez à Marrakech ? Faites-vous livrer vos repas et vos achats directement à votre Riad, hôtel ou lieu de séjour.',
-      buttonText: 'Envoyer maintenant',
-      href: 'https://wa.me/212674007161',
-    },
-    {
-      title: 'Livraison de Colis & Documents',
-      description:
-        'Un colis, des clés ou des documents à transmettre à Marrakech ? Contactez-nous pour organiser leur récupération et leur livraison.',
-      buttonText: 'Envoyer maintenant',
-      href: 'https://wa.me/212674007161',
-    },
-    {
-      title: 'Service de Coursier Personnalisé',
-      description:
-        'Un achat particulier ou une demande spécifique ? Expliquez-nous votre besoin sur WhatsApp afin que nous puissions organiser votre course.',
-      buttonText: 'Je commande',
-      href: 'https://wa.me/212674007161',
-    },
-  ],
+      services: [
+  {
+    title: 'Livraison de Repas à Marrakech',
+    description:
+      'Retrouvez vos restaurants préférés à Marrakech : McDonald’s, KFC, Burger King, Pizza Hut et bien d’autres. Nous récupérons votre commande et vous la livrons.',
+    buttonText: 'Commander un repas',
+    href: 'https://wa.me/212674007161',
+  },
+  {
+    title: 'Courses & Supermarché à Domicile',
+    description:
+      'Envoyez-nous votre liste de courses. Nous faisons vos achats au supermarché et vous les livrons directement à domicile.',
+    buttonText: 'Envoyer ma liste',
+    href: 'https://wa.me/212674007161',
+  },
+  {
+    title: 'Pharmacie & Livraison de Médicaments',
+    description:
+      'Besoin de produits de pharmacie ? Nous les récupérons pour vous et les livrons à l’adresse de votre choix.',
+    buttonText: 'Faire une demande',
+    href: 'https://wa.me/212674007161',
+  },
+  {
+    title: 'Livraison aux Riads & Hôtels',
+    description:
+      'En séjour à Marrakech ? Recevez vos repas et vos achats directement à votre riad, hôtel ou lieu de séjour.',
+    buttonText: 'Organiser ma livraison',
+    href: 'https://wa.me/212674007161',
+  },
+  {
+    title: 'Livraison de Colis & Documents',
+    description:
+      'Un colis ou un document à envoyer à Marrakech ? Nous le récupérons et le livrons à son destinataire.',
+    buttonText: 'Envoyer un colis',
+    href: 'https://wa.me/212674007161',
+  },
+  {
+    title: 'Service de Coursier Personnalisé',
+    description:
+      'Un achat à récupérer ou une course à effectuer ? Expliquez-nous votre besoin, nous nous occupons du reste.',
+    buttonText: 'Faire une demande',
+    href: 'https://wa.me/212674007161',
+  },
+],
 
   // ── Reviews ──────────────────────────────────────────────────────────────
   reviews: [
