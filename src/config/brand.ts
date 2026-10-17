@@ -15,7 +15,7 @@
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
   name: 'LIVRAISON PLUS',
-  tagline: 'Livraison rapide et fiable 24h/24 et 7j/7',
+  tagline: 'Livraison rapide et fiable 24h/24',
   description: 'Vos repas, courses et médicaments livrés rapidement à votre porte, partout à Marrakech.',
   url: 'https://www.livraisonplus.ma',
   locale: 'fr_FR',
