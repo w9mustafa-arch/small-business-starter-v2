@@ -62,39 +62,51 @@ export const siteData = {
   ],
 
   // ── Services ─────────────────────────────────────────────────────────────
-    services: [
-  {
-    title: 'Livraison de Repas à Marrakech',
-    description:
-      'Envie d’un bon repas sans vous déplacer ? Choisissez votre restaurant préféré, envoyez-nous votre commande sur WhatsApp et faites-vous livrer à domicile, au bureau ou dans votre Riad à Marrakech.',
-  },
-  {
-    title: 'Courses & Supermarché à Domicile',
-    description:
-      'Fruits, légumes, produits d’épicerie ou articles du quotidien : envoyez-nous votre liste sur WhatsApp. Nous effectuons vos achats et vous livrons directement chez vous, à Marrakech.',
-  },
-  {
-    title: 'Pharmacie & Livraison de Médicaments',
-    description:
-      'Besoin de médicaments ou de produits de pharmacie ? Contactez-nous sur WhatsApp. Nous récupérons vos achats en pharmacie et vous les livrons avec discrétion, selon la disponibilité des produits et les exigences applicables.',
-  },
-  {
-    title: 'Livraison aux Riads & Hôtels',
-    description:
-      'Vous séjournez à Marrakech ? Faites-vous livrer vos repas, vos courses ou vos achats directement à votre Riad, hôtel ou lieu de séjour. Nous facilitons vos commandes pour profiter pleinement de votre séjour.',
-  },
-  {
-    title: 'Livraison de Colis & Documents',
-    description:
-      'Un colis, des clés ou des documents à transmettre à Marrakech ? Nous assurons leur récupération et leur livraison à l’adresse souhaitée, pour vous simplifier les envois entre particuliers et professionnels.',
-  },
-  {
-    title: 'Service de Coursier Personnalisé',
-    description:
-      'Un achat particulier, une course urgente ou un besoin spécifique ? Expliquez-nous votre demande sur WhatsApp. Nous étudions votre besoin et vous proposons une solution de livraison adaptée à Marrakech et aux environs.',
-  },
-],
-
+      // ── Services ─────────────────────────────────────────────────────────────
+  services: [
+    {
+      title: 'Livraison de Repas à Marrakech',
+      description:
+        'Envie d’un bon repas sans vous déplacer ? Choisissez votre restaurant préféré et faites-vous livrer à domicile, au bureau ou dans votre Riad à Marrakech.',
+      buttonText: 'Commander maintenant',
+      href: 'https://wa.me/212674007161',
+    },
+    {
+      title: 'Courses & Supermarché à Domicile',
+      description:
+        'Fruits, légumes et produits du quotidien : envoyez-nous votre liste sur WhatsApp. Nous effectuons vos achats et vous livrons directement chez vous.',
+      buttonText: 'Faire mes courses',
+      href: 'https://wa.me/212674007161',
+    },
+    {
+      title: 'Pharmacie & Livraison de Médicaments',
+      description:
+        'Besoin de médicaments ou de produits de pharmacie ? Contactez-nous sur WhatsApp pour organiser la récupération et la livraison de vos achats.',
+      buttonText: 'Commander maintenant',
+      href: 'https://wa.me/212674007161',
+    },
+    {
+      title: 'Livraison aux Riads & Hôtels',
+      description:
+        'Vous séjournez à Marrakech ? Faites-vous livrer vos repas et vos achats directement à votre Riad, hôtel ou lieu de séjour.',
+      buttonText: 'Envoyer maintenant',
+      href: 'https://wa.me/212674007161',
+    },
+    {
+      title: 'Livraison de Colis & Documents',
+      description:
+        'Un colis, des clés ou des documents à transmettre à Marrakech ? Contactez-nous pour organiser leur récupération et leur livraison.',
+      buttonText: 'Envoyer maintenant',
+      href: 'https://wa.me/212674007161',
+    },
+    {
+      title: 'Service de Coursier Personnalisé',
+      description:
+        'Un achat particulier ou une demande spécifique ? Expliquez-nous votre besoin sur WhatsApp afin que nous puissions organiser votre course.',
+      buttonText: 'Je commande',
+      href: 'https://wa.me/212674007161',
+    },
+  ],
 
   // ── Reviews ──────────────────────────────────────────────────────────────
   reviews: [
