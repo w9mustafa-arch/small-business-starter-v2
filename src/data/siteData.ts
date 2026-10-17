@@ -66,21 +66,21 @@ export const siteData = {
   {
     title: 'Livraison de Repas à Marrakech',
     description:
-      'Retrouvez vos restaurants préférés à Marrakech : McDonald’s, KFC, Burger King, Pizza Hut et bien d’autres. Nous récupérons votre commande et vous la livrons.',
+      'Faites-vous livrer vos plats préférés depuis les restaurants de Marrakech, à domicile, au bureau ou à votre riad.',
     buttonText: 'Commander un repas',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Courses & Supermarché à Domicile',
     description:
-      'Envoyez-nous votre liste de courses. Nous faisons vos achats au supermarché et vous les livrons directement à domicile.',
+      'Envoyez-nous votre liste de courses. Nous effectuons vos achats au supermarché et vous les livrons à domicile.',
     buttonText: 'Envoyer ma liste',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Pharmacie & Livraison de Médicaments',
+    title: 'Pharmacie & Produits de Santé',
     description:
-      'Besoin de produits de pharmacie ? Nous les récupérons pour vous et les livrons à l’adresse de votre choix.',
+      'Besoin d’un produit de pharmacie ? Contactez-nous pour organiser la récupération et la livraison de vos achats.',
     buttonText: 'Faire une demande',
     href: 'https://wa.me/212674007161',
   },
@@ -101,7 +101,7 @@ export const siteData = {
   {
     title: 'Service de Coursier Personnalisé',
     description:
-      'Un achat à récupérer ou une course à effectuer ? Expliquez-nous votre besoin, nous nous occupons du reste.',
+      'Un achat à récupérer ou une course à effectuer ? Expliquez-nous votre besoin pour organiser votre livraison.',
     buttonText: 'Faire une demande',
     href: 'https://wa.me/212674007161',
   },
