@@ -5,6 +5,7 @@ interface ServiceItem {
   title: string;
   description: string;
   href?: string;
+  buttonText?: string;
 }
 
 interface Props {
@@ -18,7 +19,7 @@ const {
   topper = 'Nos services',
   heading = 'Nos services de livraison à Marrakech',
   description = 'Repas, courses, médicaments et bien plus : nous facilitons vos achats et vos livraisons à Marrakech. Contactez-nous simplement sur WhatsApp.',
-  services = siteData.services.map((s) => ({ ...s, href: '/services' })),
+  services = siteData.services,
 } = Astro.props;
 ---
 
@@ -41,9 +42,7 @@ const {
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
       {services.map((service) => (
         <li class="h-full">
-          <div
-            class="flex h-full flex-col rounded-lg border border-border bg-background p-6 shadow-sm transition-shadow duration-200 hover:shadow-md"
-          >
+          <div class="flex h-full flex-col rounded-lg border border-border bg-background p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
             <h3 class="font-heading text-h3 font-semibold text-text">
               {service.title}
             </h3>
@@ -53,11 +52,17 @@ const {
             </p>
 
             <a
-              href={service.href || '/services'}
+              href={service.href || 'https://wa.me/212674007161'}
+              target="_blank"
+              rel="noopener noreferrer"
               class="group mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
-              En savoir plus
-              <span class="transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+              {service.buttonText || 'Commander maintenant'}
+
+              <span
+                class="transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              >
                 &rarr;
               </span>
             </a>
