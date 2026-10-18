@@ -41,7 +41,8 @@ export { heroImage };
 // import below, update the filename, and change the export to: export { aboutImage };
 //
 // import aboutImage from '../assets/images/about/team.jpg';
-export const aboutImage: ImageMetadata | undefined = undefined;
+import aboutImageFile from '../assets/images/about/livraison-plus.webp';
+export const aboutImage: ImageMetadata = aboutImageFile;
 //comment out above and uncomment below to use your own image
 // export { aboutImage };
 
