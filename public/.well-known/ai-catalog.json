@@ -1,0 +1,37 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Livraison Plus",
+    "documentationUrl": "https://www.livraisonplus.ma/"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:livraisonplus.ma:content:site-info",
+      "displayName": "Livraison Plus - Services de livraison à Marrakech",
+      "type": "text/markdown",
+      "url": "https://www.livraisonplus.ma/llms.txt",
+      "description": "Informations sur Livraison Plus, un service indépendant de livraison et d'achat à Marrakech, au Maroc. Les clients peuvent demander des livraisons de repas, de courses, de produits de pharmacie, de colis, de documents, de fleurs et de cadeaux, ainsi que des achats effectués pour leur compte.",
+      "tags": [
+        "Livraison Plus",
+        "Livreur Marrakech",
+        "Service de livraison",
+        "Livraison de repas",
+        "Courses et supermarché",
+        "Livraison de pharmacie",
+        "Livraison de colis",
+        "Livraison de documents",
+        "Fleurs et cadeaux",
+        "Achats à la demande",
+        "Marrakech",
+        "WhatsApp"
+      ],
+      "representativeQueries": [
+        "Comment trouver un livreur à Marrakech ?",
+        "Quels services propose Livraison Plus à Marrakech ?",
+        "Comment commander une livraison à Marrakech ?",
+        "Où trouver un service de courses et d'achats à Marrakech ?",
+        "Comment contacter Livraison Plus sur WhatsApp ?"
+      ]
+    }
+  ]
+}
