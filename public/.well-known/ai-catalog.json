@@ -8,7 +8,7 @@
     {
       "identifier": "urn:air:livraisonplus.ma:content:site-info",
       "displayName": "Livraison Plus - Services de livraison à Marrakech",
-      "type": "text/markdown",
+      "type": "text/markdown; charset=utf-8; profile=\"urn:ard:document\"",
       "url": "https://www.livraisonplus.ma/llms.txt",
       "description": "Informations sur Livraison Plus, un service indépendant de livraison et d'achat à Marrakech, au Maroc. Les clients peuvent demander des livraisons de repas, de courses, de produits de pharmacie, de colis, de documents, de fleurs et de cadeaux, ainsi que des achats effectués pour leur compte.",
       "tags": [
