@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * IMAGE CONFIGURATION
+ * IMAGE CONFIGURATION1
  * ─────────────────────────────────────────────────────────────────────────────
  * This is the single file to edit when swapping placeholder images for a
  * client's real photos. Astro will automatically optimize every local image
