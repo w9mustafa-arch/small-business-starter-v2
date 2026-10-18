@@ -109,13 +109,16 @@ export const siteData = {
 
   // ── Reviews ──────────────────────────────────────────────────────────────
   reviews: [
-    { quote: "They showed up on time, explained everything clearly, and finished the job faster than expected. Best service experience we've had.", name: 'Sarah M.', location: 'Denver, CO', rating: 5 },
-    { quote: "Honest pricing and top-notch work. I've used them for three different projects now and they never disappoint.", name: 'James R.', location: 'Aurora, CO', rating: 5 },
-    { quote: 'Our emergency call was answered in minutes. They had the problem fixed before dinner. Truly dependable.', name: 'Linda K.', location: 'Lakewood, CO', rating: 5 },
-    { quote: 'The remodel turned out even better than we imagined. Professional, clean, and on budget. We couldn\'t be happier.', name: 'Tom & Beth P.', location: 'Boulder, CO', rating: 5 },
-    { quote: 'Excellent service,un gars formidable qui fait un effort supplémentaire pour ses clients,l utilisera toujours au marrakech.merci bon courage 😚', name: 'Hossain Rouchdi', location: 'il y a 6 mois', rating: 5 },
-    { quote: "I appreciate the upfront pricing — no hidden fees or surprise charges. That's rare these days. Highly recommend.", name: 'Marcus D.', location: 'Arvada, CO', rating: 5 },
-  ],
+    { quote: "Très bon service, rapide et fiable allah yser likum", name: 'Marwa Swabni', location: 'Marrakech', rating: 5 },
+    { quote: "Merci beaucoup Tbarklah elik service mzn odriyf okatakhod Ikhatr Iwahd 🙏", name: 'Shriri Donya', location: 'Marrakech', rating: 5 },
+    { quote: "Très bon service, sérieux, ponctuel et réactif. Je le recommande 👍👍👍👍👍", name: 'Abdlhafaid Id Ihcen', location: 'Marrakech', rating: 5 },
+    { quote: "Livraison très vite et un bon livreur", name: 'El Batalani Hiba', location: 'Marrakech', rating: 5 },
+    { quote: "Excellent service,un gars formidable qui fait un effort supplémentaire pour ses clients,l utilisera toujours au marrakech.merci bon courage 😚", name: 'Hossain Rouchdi', location: 'Marrakech', rating: 5 },
+    { quote: "Merci pour votre service de qualité. La livraison était rapide et le service au top. Je suis très satisfait", name: 'Prof SVT', location: 'Marrakech', rating: 5 },
+    { quote: "Un grand merci au livreur : serviable, très sympa et super réactif, même en urgence. Je recommande.", name: 'alahyane hassan', location: 'Marrakech', rating: 5 },
+    { quote: "Excellent livreur ! Toujours ponctuel, sérieux et très respectueux. Les livraisons se passent parfaitement à chaque fois. Service de qualité, je recommande sans hésitation.", name: 'said id issa', location: 'Marrakech', rating: 5 },
+],
+
 
   // ── About page ───────────────────────────────────────────────────────────
   about: {
