@@ -56,7 +56,7 @@ export const siteData = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Reviews', href: '/reviews' },
+    { label: 'Avis Clients', href: '/avis' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
     { label: 'FAQ', href: '/faq' },
