@@ -8,27 +8,46 @@ import faqData from '../data/faqData.json';
 
 type FaqGroup = { title: string; slug: string; items: string[][] };
 const groups = faqData as FaqGroup[];
-
 const totalQuestions = groups.reduce((sum, g) => sum + g.items.length, 0);
 
-const icons: Record<string, string> = {
-  riad: '🏺',
-  hotel: '🏨',
-  villa: '🏡',
-  touristes: '🧳',
-  pharmacie: '💊',
-  courses: '🛒',
-  repas: '🍽️',
-  golf: '⛳',
-  nuit: '🌙',
-  'fleurs-cadeaux': '💐',
-  pressing: '👔',
-  'commande-paiement': '💳',
+// Short labels for sidebar / cards (full title is used for section headings)
+const shortLabels: Record<string, string> = {
+  riad: 'Riads',
+  hotel: 'Hôtels',
+  villa: 'Villas',
+  touristes: 'Touristes',
+  pharmacie: 'Pharmacie',
+  courses: 'Courses',
+  repas: 'Repas',
+  golf: 'Golf',
+  nuit: 'Livraison de nuit',
+  'fleurs-cadeaux': 'Fleurs & cadeaux',
+  pressing: 'Pressing',
+  'commande-paiement': 'Commande & paiement',
 };
+
+// Line icons (24×24, stroke = currentColor). Add a slug here when you add a topic.
+const icons: Record<string, string> = {
+  riad: '<path d="M4 21V10a8 8 0 0116 0v11"/><path d="M9 21v-6a3 3 0 016 0v6"/><path d="M2 21h20"/>',
+  hotel: '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2"/><path d="M10 21v-4h4v4"/>',
+  villa: '<path d="M3 11l9-8 9 8"/><path d="M5 10v11h14V10"/><path d="M10 21v-6h4v6"/>',
+  touristes: '<path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  pharmacie: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/>',
+  courses: '<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11l2-8H6"/>',
+  repas: '<path d="M7 3v8M4 3v5a3 3 0 006 0V3M7 11v10"/><path d="M17 21V3c-2.5 1.5-4 4.5-4 8h4"/>',
+  golf: '<path d="M8 21V3l9 4-9 4"/><path d="M4 21h16"/>',
+  nuit: '<path d="M20 14.5A8.5 8.5 0 019.5 4 8.5 8.5 0 1020 14.5z"/>',
+  'fleurs-cadeaux': '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9"/><path d="M12 8c-1-3-5-4-5-1.5S10 8 12 8zM12 8c1-3 5-4 5-1.5S14 8 12 8z"/>',
+  pressing: '<path d="M8 3L3 6.5 5.5 10 8 8.5V21h8V8.5l2.5 1.5L21 6.5 16 3a4 4 0 01-8 0z"/>',
+  'commande-paiement': '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',
+  default: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-.9.6-1.5 1.1-1.5 2.3M12 17h.01"/>',
+};
+const iconFor = (slug: string) => icons[slug] ?? icons.default;
+const labelFor = (g: FaqGroup) => shortLabels[g.slug] ?? g.title;
 
 const whatsappHref = `https://wa.me/${siteData.phoneForTel.replace('+', '')}`;
 
-// FAQPage structured data (helps Google show Q&A in search results)
+// FAQPage structured data
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -51,107 +70,146 @@ const schema = {
 
   <Banner title="Questions fréquentes" />
 
-  <!-- ── Intro + search + topics ───────────────────────────────────────── -->
-  <section class="py-section">
-    <div class="mx-auto max-w-site px-4 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">
-          Comment pouvons-nous vous aider ?
-        </h2>
-        <p class="mt-3 leading-relaxed text-text-muted">
-          {totalQuestions} réponses sur la livraison à Marrakech. Cherchez un mot-clé ou choisissez un sujet ci-dessous.
-        </p>
+  <!-- ── Intro + search ────────────────────────────────────────────────── -->
+  <section class="py-12 sm:py-14 lg:py-16">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <h2 class="font-heading text-h2 font-bold uppercase text-text">
+        Comment pouvons-nous vous aider ?
+      </h2>
+      <p class="mt-3 leading-relaxed text-text-muted">
+        {totalQuestions} réponses sur la livraison à Marrakech. Tapez un mot-clé ou choisissez un sujet.
+      </p>
 
-        <!-- Search -->
-        <div class="relative mt-8">
-          <svg
-            class="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-text-muted"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
-          </svg>
-          <input
-            id="faq-search"
-            type="search"
-            autocomplete="off"
-            placeholder="Rechercher : pharmacie, paiement, riad, nuit…"
-            aria-label="Rechercher dans les questions fréquentes"
-            class="min-h-14 w-full rounded-lg border border-border bg-background py-3 pl-12 pr-4 text-text shadow-sm transition-colors placeholder:text-text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-          />
-        </div>
-        <p id="faq-status" class="mt-3 min-h-5 text-sm text-text-muted" aria-live="polite"></p>
+      <div class="relative mt-8">
+        <svg
+          class="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-text-muted"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          viewBox="0 0 24 24" aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.35-4.35" />
+        </svg>
+        <input
+          id="faq-search"
+          type="search"
+          autocomplete="off"
+          enterkeyhint="search"
+          placeholder="Rechercher : pharmacie, paiement, riad, nuit…"
+          aria-label="Rechercher dans les questions fréquentes"
+          class="min-h-14 w-full rounded-lg border border-border bg-background py-3 pl-12 pr-4 text-base text-text shadow-sm transition-colors placeholder:text-text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+        />
       </div>
-
-      <!-- Topic cards -->
-      <nav aria-label="Sujets" class="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {groups.map((group) => (
-          <a
-            href={`#${group.slug}`}
-            class="group flex flex-col items-start gap-3 rounded-lg border border-border bg-background p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:p-5"
-          >
-            <span class="flex size-11 items-center justify-center rounded-md bg-primary/10 text-2xl" aria-hidden="true">
-              {icons[group.slug] ?? '❓'}
-            </span>
-            <span class="text-sm font-semibold leading-snug text-text sm:text-base">{group.title}</span>
-            <span class="text-xs text-text-muted">{group.items.length} questions</span>
-          </a>
-        ))}
-      </nav>
     </div>
   </section>
 
-  <!-- ── Questions ─────────────────────────────────────────────────────── -->
-  <section class="bg-surface py-section">
-    <div class="mx-auto max-w-4xl space-y-14 px-4 sm:px-6">
-      {groups.map((group) => (
-        <div id={group.slug} class="scroll-mt-28" data-faq-group>
-          <div class="mb-5 flex items-center gap-4">
-            <span class="flex size-12 shrink-0 items-center justify-center rounded-md bg-primary text-2xl" aria-hidden="true">
-              {icons[group.slug] ?? '❓'}
-            </span>
-            <h2 class="font-heading text-h3 font-bold uppercase text-text">{group.title}</h2>
-          </div>
+  <!-- ── Topics + questions ────────────────────────────────────────────── -->
+  <section class="bg-surface py-12 sm:py-14 lg:py-16">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[18rem_minmax(0,1fr)] xl:gap-16">
 
-          <div class="space-y-3">
-            {group.items.map(([question, answer]) => (
-              <details
-                class="group rounded-lg border border-border bg-background shadow-sm transition-colors open:border-primary/40"
-                data-faq-item
-              >
-                <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-5 py-4 text-base font-semibold text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-lg [&::-webkit-details-marker]:hidden">
-                  <span>{question}</span>
-                  <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-200 group-open:rotate-180" aria-hidden="true">
-                    <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </summary>
-                <div class="border-t border-border px-5 pb-5 pt-4 leading-relaxed text-text-muted">
-                  {answer}
-                </div>
-              </details>
+      <!-- Sidebar (desktop) -->
+      <aside class="hidden lg:block">
+        <nav aria-label="Sujets" class="sticky top-28 rounded-lg border border-border bg-background p-3 shadow-sm">
+          <p class="px-3 pb-2 pt-1 text-xs font-bold uppercase tracking-wider text-text-muted">Sujets</p>
+          <ul class="space-y-0.5">
+            {groups.map((group) => (
+              <li>
+                <a
+                  href={`#${group.slug}`}
+                  data-topic-link
+                  class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium leading-snug text-text-muted transition-colors hover:bg-primary/5 hover:text-text focus-visible:outline-2 focus-visible:outline-primary data-[active=true]:bg-primary/10 data-[active=true]:text-primary"
+                >
+                  <svg class="size-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconFor(group.slug)} />
+                  <span>{labelFor(group)}</span>
+                </a>
+              </li>
             ))}
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main column -->
+      <div class="min-w-0">
+
+        <!-- Search status bar (visible only while searching) -->
+        <div id="faq-results" hidden class="mb-8 scroll-mt-28">
+          <div class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-primary/30 bg-primary/5 px-5 py-4">
+            <p id="faq-status" class="font-semibold text-text" aria-live="polite"></p>
+            <button
+              id="faq-clear"
+              type="button"
+              class="inline-flex min-h-10 cursor-pointer items-center gap-2 rounded-md px-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-primary"
+            >
+              <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+              Effacer la recherche
+            </button>
           </div>
         </div>
-      ))}
 
-      <!-- No results -->
-      <div id="faq-empty" hidden class="rounded-lg border border-dashed border-border bg-background p-8 text-center">
-        <p class="font-heading text-h3 font-bold uppercase text-text">Aucun résultat</p>
-        <p class="mt-2 text-text-muted">
-          Essayez un autre mot-clé ou posez-nous directement votre question sur WhatsApp.
-        </p>
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
-        >
-          Écrire sur WhatsApp
-        </a>
+        <!-- Topic cards (mobile + tablet) -->
+        <div id="faq-topics" class="mb-10 lg:hidden">
+          <nav aria-label="Sujets" class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+            {groups.map((group) => (
+              <a
+                href={`#${group.slug}`}
+                data-topic-link
+                class="flex flex-col items-start gap-3 rounded-lg border border-border bg-background p-4 shadow-sm transition-all hover:border-primary/50 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:p-5"
+              >
+                <span class="flex size-11 items-center justify-center rounded-md bg-primary/10 text-primary">
+                  <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconFor(group.slug)} />
+                </span>
+                <span class="text-sm font-semibold leading-snug text-text sm:text-base">{labelFor(group)}</span>
+                <span class="text-xs text-text-muted">{group.items.length} questions</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <!-- Question groups -->
+        <div class="flex flex-col gap-12 lg:gap-14">
+          {groups.map((group) => (
+            <div id={group.slug} class="scroll-mt-28" data-faq-group data-title={group.title}>
+              <div class="mb-5 flex items-center gap-4">
+                <span class="flex size-12 shrink-0 items-center justify-center rounded-md bg-primary text-primary-fg">
+                  <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconFor(group.slug)} />
+                </span>
+                <h2 class="font-heading text-h3 font-bold uppercase text-text">{group.title}</h2>
+                <span data-group-count hidden class="ml-auto shrink-0 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"></span>
+              </div>
+
+              <div class="flex flex-col gap-3">
+                {group.items.map(([question, answer]) => (
+                  <details
+                    class="group rounded-lg border border-border bg-background shadow-sm transition-colors open:border-primary/40"
+                    data-faq-item
+                  >
+                    <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-5 py-4 text-base font-semibold text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-lg [&::-webkit-details-marker]:hidden">
+                      <span data-q>{question}</span>
+                      <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-200 group-open:rotate-180" aria-hidden="true">
+                        <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" /></svg>
+                      </span>
+                    </summary>
+                    <div class="border-t border-border px-5 pb-5 pt-4 leading-relaxed text-text-muted" data-a>{answer}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- No results -->
+        <div id="faq-empty" hidden class="rounded-lg border border-dashed border-border bg-background p-8 text-center sm:p-10">
+          <p class="font-heading text-h3 font-bold uppercase text-text">Aucun résultat</p>
+          <p class="mx-auto mt-2 max-w-md text-text-muted">
+            Essayez un autre mot-clé ou posez-nous directement votre question sur WhatsApp.
+          </p>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
+          >
+            Écrire sur WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -189,47 +247,164 @@ const schema = {
 </BaseLayout>
 
 <script>
-  // Client-side search: accent-insensitive, opens matching answers,
-  // hides empty topics. Re-initialised on every page load (view transitions).
-  const normalize = (s: string) =>
-    s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  // Accent-insensitive, per-character normalisation (keeps string indices aligned
+  // with the original text so matches can be highlighted).
+  const charNorm = (c: string) =>
+    c === '’' ? "'" : c.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const normalize = (s: string) => Array.from(s).map(charNorm).join('');
 
-  function initFaqSearch() {
+  // Re-render an element's text, wrapping every matched term in <mark>.
+  function render(el: HTMLElement, text: string, terms: string[]) {
+    el.textContent = '';
+    const chars = Array.from(text);
+    const mapped = chars.map(charNorm);
+    if (!terms.length || mapped.some((m) => m.length !== 1)) {
+      el.textContent = text;
+      return;
+    }
+    const hay = mapped.join('');
+    const ranges: [number, number][] = [];
+    for (const t of terms) {
+      let i = hay.indexOf(t);
+      while (i !== -1) {
+        ranges.push([i, i + t.length]);
+        i = hay.indexOf(t, i + t.length);
+      }
+    }
+    ranges.sort((a, b) => a[0] - b[0]);
+    const merged: [number, number][] = [];
+    for (const r of ranges) {
+      const last = merged[merged.length - 1];
+      if (last && r[0] <= last[1]) last[1] = Math.max(last[1], r[1]);
+      else merged.push([r[0], r[1]]);
+    }
+    let pos = 0;
+    for (const [s, e] of merged) {
+      if (s > pos) el.append(chars.slice(pos, s).join(''));
+      const mark = document.createElement('mark');
+      mark.className = 'rounded-sm bg-stars/50 px-0.5 text-text';
+      mark.textContent = chars.slice(s, e).join('');
+      el.append(mark);
+      pos = e;
+    }
+    if (pos < chars.length) el.append(chars.slice(pos).join(''));
+  }
+
+  function initFaq() {
     const input = document.getElementById('faq-search') as HTMLInputElement | null;
     if (!input) return;
 
+    const results = document.getElementById('faq-results')!;
     const status = document.getElementById('faq-status')!;
+    const clearBtn = document.getElementById('faq-clear')!;
     const empty = document.getElementById('faq-empty')!;
+    const topics = document.getElementById('faq-topics');
     const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-faq-group]'));
 
-    const run = () => {
-      const q = normalize(input.value);
-      let matches = 0;
+    // Pre-compute searchable text once
+    const items = groups.flatMap((group) =>
+      Array.from(group.querySelectorAll<HTMLDetailsElement>('[data-faq-item]')).map((el) => {
+        const qEl = el.querySelector<HTMLElement>('[data-q]')!;
+        const aEl = el.querySelector<HTMLElement>('[data-a]')!;
+        const q = qEl.textContent ?? '';
+        const a = aEl.textContent ?? '';
+        return {
+          group, el, qEl, aEl, q, a,
+          haystack: normalize(`${group.dataset.title} ${q} ${a}`),
+        };
+      }),
+    );
 
-      groups.forEach((group) => {
-        let groupMatches = 0;
-        group.querySelectorAll<HTMLDetailsElement>('[data-faq-item]').forEach((item) => {
-          const hit = q === '' || normalize(item.textContent ?? '').includes(q);
-          item.hidden = !hit;
-          item.open = q !== '' && hit;
-          if (hit) groupMatches++;
-        });
-        group.hidden = groupMatches === 0;
-        matches += groupMatches;
+    let timer: number | undefined;
+
+    const run = (scroll: boolean) => {
+      const query = normalize(input.value).trim();
+      const terms = query.split(/\s+/).filter(Boolean);
+      const searching = terms.length > 0;
+      let total = 0;
+      const perGroup = new Map<HTMLElement, number>();
+
+      items.forEach((it) => {
+        const hit = !searching || terms.every((t) => it.haystack.includes(t));
+        it.el.hidden = !hit;
+        it.el.open = searching && hit;
+        render(it.qEl, it.q, searching && hit ? terms : []);
+        render(it.aEl, it.a, searching && hit ? terms : []);
+        if (hit) {
+          total++;
+          perGroup.set(it.group, (perGroup.get(it.group) ?? 0) + 1);
+        }
       });
 
-      empty.hidden = !(q !== '' && matches === 0);
-      status.textContent =
-        q === ''
-          ? ''
-          : matches === 0
-            ? ''
-            : `${matches} résultat${matches > 1 ? 's' : ''} trouvé${matches > 1 ? 's' : ''}`;
+      groups.forEach((group) => {
+        const n = perGroup.get(group) ?? 0;
+        group.hidden = n === 0;
+        const badge = group.querySelector<HTMLElement>('[data-group-count]')!;
+        badge.hidden = !searching || n === 0;
+        badge.textContent = `${n} résultat${n > 1 ? 's' : ''}`;
+      });
+
+      results.hidden = !searching;
+      if (topics) topics.hidden = searching;
+      empty.hidden = !(searching && total === 0);
+      status.textContent = searching
+        ? total === 0
+          ? `Aucun résultat pour « ${input.value.trim()} »`
+          : `${total} résultat${total > 1 ? 's' : ''} pour « ${input.value.trim()} »`
+        : '';
+
+      // Bring the results into view if they are off-screen
+      if (scroll && searching) {
+        const top = results.getBoundingClientRect().top;
+        if (top > window.innerHeight * 0.5 || top < 80) {
+          results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     };
 
-    input.addEventListener('input', run);
-    run();
+    const clear = () => {
+      input.value = '';
+      run(false);
+    };
+
+    input.addEventListener('input', () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => run(true), 250);
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') clear();
+    });
+    clearBtn.addEventListener('click', () => {
+      clear();
+      input.focus();
+    });
+
+    // Clicking a topic while searching resets the search first
+    document.querySelectorAll<HTMLAnchorElement>('[data-topic-link]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (input.value) clear();
+      });
+    });
+
+    // Highlight the current topic in the desktop sidebar
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('aside [data-topic-link]'));
+    if (links.length && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            links.forEach((l) => {
+              l.dataset.active = String(l.getAttribute('href') === `#${entry.target.id}`);
+            });
+          });
+        },
+        { rootMargin: '-25% 0px -65% 0px' },
+      );
+      groups.forEach((g) => io.observe(g));
+    }
+
+    run(false);
   }
 
-  document.addEventListener('astro:page-load', initFaqSearch);
+  document.addEventListener('astro:page-load', initFaq);
 </script>
