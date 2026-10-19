@@ -3,10 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
-import { siteData } from '../data/siteData';
 import faqGroups from '../data/faqData.json';
 
 const whatsappUrl = 'https://wa.me/212674007161';
+
+const totalQuestions = faqGroups.reduce(
+  (total, group) => total + group.items.length,
+  0
+);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -29,107 +34,295 @@ const faqSchema = {
   schema={faqSchema}
 >
   <Header slot="header" />
+
   <Banner title="Questions fréquentes" />
 
+  <!-- Introduction -->
   <section class="faq-intro py-12 sm:py-16">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-      <span class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
-        <svg aria-hidden="true" viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="9"></circle><path d="M9.6 9a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.5"></path><path d="M12 17.5h.01"></path>
+
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          class="size-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M9.6 9a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.5"></path>
+          <path d="M12 17.5h.01"></path>
         </svg>
+
         Besoin d’une information ?
       </span>
-      <h2 class="mt-5 font-heading text-h2 font-bold text-text">Tout savoir sur nos livraisons à Marrakech</h2>
+
+      <h2 class="mt-5 font-heading text-h2 font-bold text-text">
+        Tout savoir sur nos livraisons à Marrakech
+      </h2>
+
       <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
-        Retrouvez ici les réponses aux questions les plus fréquentes sur nos services. Si vous avez un besoin particulier, écrivez-nous directement sur WhatsApp.
+        Retrouvez les réponses aux questions les plus fréquentes sur nos services.
+        Pour une demande particulière, écrivez-nous directement sur WhatsApp.
       </p>
 
-      <label class="faq-search mt-8 flex min-h-14 items-center gap-3 rounded-xl border border-border bg-background px-4 text-left shadow-sm transition focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10">
-        <svg aria-hidden="true" class="size-5 shrink-0 text-text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path>
+      <!-- Recherche -->
+      <label
+        class="faq-search mt-8 flex min-h-14 items-center gap-3 rounded-xl border border-border bg-background px-4 text-left shadow-sm transition"
+      >
+        <svg
+          aria-hidden="true"
+          class="size-5 shrink-0 text-text-muted"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="10.8" cy="10.8" r="6.8"></circle>
+          <path d="m16 16 4.5 4.5"></path>
         </svg>
-        <span class="sr-only">Rechercher une question</span>
-        <input id="faq-search" type="search" placeholder="Rechercher une question…" class="w-full border-0 bg-transparent py-3 text-base text-text outline-none placeholder:text-text-muted/70" autocomplete="off" />
-        <kbd class="hidden rounded border border-border bg-surface px-2 py-1 text-xs text-text-muted sm:inline">FAQ</kbd>
+
+        <input
+          id="faq-search"
+          type="search"
+          placeholder="Rechercher une question…"
+          class="w-full min-w-0 border-0 bg-transparent py-3 text-base text-text outline-none placeholder:text-text-muted/70"
+          autocomplete="off"
+          aria-label="Rechercher dans les questions fréquentes"
+        />
       </label>
-      <p id="faq-result-count" class="mt-3 text-sm text-text-muted" aria-live="polite">12 catégories · 48 questions</p>
+
+      <p
+        id="faq-result-count"
+        class="mt-3 text-sm text-text-muted"
+        aria-live="polite"
+      >
+        {faqGroups.length} catégories · {totalQuestions} questions
+      </p>
+
     </div>
   </section>
 
+  <!-- FAQ Content -->
   <section class="pb-section">
-    <div class="mx-auto grid max-w-site grid-cols-1 items-start gap-8 px-4 sm:px-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-12">
+    <div
+      class="mx-auto grid max-w-site grid-cols-1 items-start gap-8 px-4 sm:px-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-12"
+    >
+
+      <!-- Categories -->
       <aside class="faq-sidebar lg:sticky lg:top-28">
-        <div class="rounded-2xl border border-border bg-surface p-5">
-          <h2 class="font-heading text-base font-bold text-text">Parcourir les catégories</h2>
-          <nav aria-label="Catégories de questions fréquentes" class="mt-4 flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible">
+        <div class="rounded-2xl border border-border bg-surface p-4 sm:p-5">
+
+          <h2 class="font-heading text-base font-bold text-text">
+            Parcourir les catégories
+          </h2>
+
+          <nav
+            aria-label="Catégories de questions fréquentes"
+            class="faq-category-nav mt-4 flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible"
+          >
             {faqGroups.map((group, index) => (
-              <a href={`#${group.slug}`} class="faq-category-link shrink-0 rounded-lg px-3 py-2.5 text-sm font-medium text-text-muted transition-colors hover:bg-primary/10 hover:text-primary" data-category-link={group.slug}>
-                <span class="mr-2 text-xs font-bold text-primary/70">{String(index + 1).padStart(2, '0')}</span>{group.title}
+              <a
+                href={`#${group.slug}`}
+                class="faq-category-link shrink-0 rounded-lg px-3 py-2.5 text-sm font-medium text-text-muted transition-colors hover:bg-primary/10 hover:text-primary"
+                data-category-link={group.slug}
+              >
+                <span class="mr-2 text-xs font-bold text-primary/70">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                {group.title}
               </a>
             ))}
           </nav>
+
+          <!-- WhatsApp Contact Card -->
           <div class="mt-5 rounded-xl bg-background p-4">
-            <p class="text-sm font-semibold text-text">Vous ne trouvez pas votre réponse ?</p>
-            <p class="mt-1 text-sm leading-6 text-text-muted">Expliquez-nous votre besoin, nous vous répondrons sur WhatsApp.</p>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-primary-fg transition-opacity hover:opacity-90">
+
+            <p class="text-sm font-semibold text-text">
+              Vous ne trouvez pas votre réponse ?
+            </p>
+
+            <p class="mt-1 text-sm leading-6 text-text-muted">
+              Expliquez-nous votre besoin, nous vous répondrons sur WhatsApp.
+            </p>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-primary-fg transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
               Nous écrire sur WhatsApp
-              <svg aria-hidden="true" class="size-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.7Zm5.4-7.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.5-.4Z"/></svg>
+
+              <svg
+                aria-hidden="true"
+                class="size-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.7Zm5.4-7.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.5-.4Z"/>
+              </svg>
             </a>
+
           </div>
         </div>
       </aside>
 
-      <div id="faq-groups" class="min-w-0 space-y-7">
+      <!-- Questions and Answers -->
+      <div id="faq-groups" class="min-w-0 space-y-6 sm:space-y-7">
+
         {faqGroups.map((group, index) => (
-          <section id={group.slug} class="faq-group scroll-mt-28 overflow-hidden rounded-2xl border border-border bg-background shadow-sm" data-faq-group data-title={group.title.toLocaleLowerCase('fr')}>
-            <div class="border-b border-border bg-surface/70 px-5 py-5 sm:px-7">
-              <div class="flex items-start gap-4">
-                <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 font-heading text-base font-bold text-primary">{String(index + 1).padStart(2, '0')}</span>
-                <div>
-                  <h2 class="font-heading text-xl font-bold text-text sm:text-2xl">{group.title}</h2>
-                  <p class="mt-1 text-sm text-text-muted">{group.items.length} questions et réponses</p>
+          <section
+            id={group.slug}
+            class="faq-group scroll-mt-28 overflow-hidden rounded-2xl border border-border bg-background shadow-sm"
+            data-faq-group
+            data-title={group.title.toLocaleLowerCase('fr')}
+          >
+
+            <!-- Category Header -->
+            <div class="border-b border-border bg-surface/70 px-4 py-5 sm:px-7">
+              <div class="flex items-start gap-3 sm:gap-4">
+
+                <span
+                  class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 font-heading text-sm font-bold text-primary sm:size-11 sm:text-base"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                <div class="min-w-0">
+                  <h2 class="font-heading text-xl font-bold text-text sm:text-2xl">
+                    {group.title}
+                  </h2>
+
+                  <p class="mt-1 text-sm text-text-muted">
+                    {group.items.length} questions et réponses
+                  </p>
                 </div>
+
               </div>
             </div>
-            <div class="divide-y divide-border px-5 sm:px-7">
+
+            <!-- Questions -->
+            <div class="divide-y divide-border px-4 sm:px-7">
+
               {group.items.map(([question, answer], questionIndex) => (
-                <details class="faq-item group py-1" data-faq-item data-search={`${question} ${answer} ${group.title}`.toLocaleLowerCase('fr')}>
-                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left font-semibold text-text marker:hidden">
-                    <span class="flex items-start gap-3">
-                      <span class="mt-0.5 text-sm font-bold text-primary/80">{String(questionIndex + 1).padStart(2, '0')}</span>
-                      <span>{question}</span>
+                <details
+                  class="faq-item group py-1"
+                  data-faq-item
+                  data-search={`${question} ${answer}`.toLocaleLowerCase('fr')}
+                >
+
+                  <summary
+                    class="flex cursor-pointer list-none items-start justify-between gap-3 py-5 text-left font-semibold text-text marker:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    <span class="flex min-w-0 items-start gap-3">
+
+                      <span class="mt-0.5 shrink-0 text-sm font-bold text-primary/80">
+                        {String(questionIndex + 1).padStart(2, '0')}
+                      </span>
+
+                      <span class="break-words">
+                        {question}
+                      </span>
+
                     </span>
-                    <span class="faq-toggle flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-primary transition-transform group-open:rotate-45" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+
+                    <span
+                      class="faq-toggle flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-primary transition-transform"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="size-4"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M12 5v14M5 12h14"
+                          stroke-linecap="round"
+                        />
+                      </svg>
                     </span>
+
                   </summary>
+
                   <div class="faq-answer pb-5 pl-7 sm:pl-8">
-                    <p class="max-w-3xl text-base leading-7 text-text-muted">{answer}</p>
+                    <p class="max-w-3xl break-words text-base leading-7 text-text-muted">
+                      {answer}
+                    </p>
                   </div>
+
                 </details>
               ))}
+
             </div>
           </section>
         ))}
-        <div id="faq-no-results" class="hidden rounded-2xl border border-dashed border-border bg-surface px-6 py-12 text-center">
-          <h2 class="font-heading text-xl font-bold text-text">Aucun résultat trouvé</h2>
-          <p class="mt-2 text-text-muted">Essayez un autre mot-clé ou contactez-nous sur WhatsApp.</p>
-          <button id="faq-reset" type="button" class="mt-5 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-fg">Effacer la recherche</button>
+
+        <!-- No Search Results -->
+        <div
+          id="faq-no-results"
+          class="hidden rounded-2xl border border-dashed border-border bg-surface px-6 py-12 text-center"
+        >
+          <h2 class="font-heading text-xl font-bold text-text">
+            Aucun résultat trouvé
+          </h2>
+
+          <p class="mt-2 text-text-muted">
+            Essayez un autre mot-clé ou contactez-nous sur WhatsApp.
+          </p>
+
+          <button
+            id="faq-reset"
+            type="button"
+            class="mt-5 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-fg transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            Effacer la recherche
+          </button>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- Bottom CTA -->
   <section class="faq-bottom-cta bg-surface py-14 sm:py-16">
     <div class="mx-auto flex max-w-site flex-col items-center gap-6 px-4 text-center sm:px-6">
+
       <div class="max-w-2xl">
-        <h2 class="font-heading text-h2 font-bold text-text">Une demande particulière ?</h2>
-        <p class="mt-3 leading-7 text-text-muted">Décrivez-nous ce dont vous avez besoin. Nous vérifierons les possibilités et les modalités avec vous avant de confirmer la prise en charge.</p>
+        <h2 class="font-heading text-h2 font-bold text-text">
+          Une demande particulière ?
+        </h2>
+
+        <p class="mt-3 leading-7 text-text-muted">
+          Décrivez-nous ce dont vous avez besoin. Nous vérifierons les possibilités
+          et les modalités avec vous avant de confirmer la prise en charge.
+        </p>
       </div>
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3 font-bold text-primary-fg shadow-sm transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-center font-bold text-primary-fg shadow-sm transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-7"
+      >
         Contacter Livraison Plus sur WhatsApp
-        <svg aria-hidden="true" class="size-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.7Z"/></svg>
+
+        <svg
+          aria-hidden="true"
+          class="size-5 shrink-0"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.7Z"/>
+        </svg>
       </a>
+
     </div>
   </section>
 
@@ -138,77 +331,231 @@ const faqSchema = {
 
 <script>
   function initFaqPage() {
-    const search = document.querySelector<HTMLInputElement>('#faq-search');
-    const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-faq-group]'));
-    const count = document.querySelector<HTMLElement>('#faq-result-count');
-    const noResults = document.querySelector<HTMLElement>('#faq-no-results');
-    const reset = document.querySelector<HTMLButtonElement>('#faq-reset');
-    const categoryLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-category-link]'));
-    if (!search || !count || !noResults || search.dataset.faqInit === 'true') return;
+    const search =
+      document.querySelector<HTMLInputElement>('#faq-search');
+
+    const groups = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-faq-group]')
+    );
+
+    const count =
+      document.querySelector<HTMLElement>('#faq-result-count');
+
+    const noResults =
+      document.querySelector<HTMLElement>('#faq-no-results');
+
+    const reset =
+      document.querySelector<HTMLButtonElement>('#faq-reset');
+
+    const categoryLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('[data-category-link]')
+    );
+
+    if (!search || !count || !noResults) {
+      return;
+    }
+
+    // Avoid adding duplicate event listeners.
+    if (search.dataset.faqInit === 'true') {
+      return;
+    }
+
     search.dataset.faqInit = 'true';
 
+    const totalQuestions = groups.reduce(
+      (total, group) =>
+        total + group.querySelectorAll('[data-faq-item]').length,
+      0
+    );
+
     const update = () => {
-      const query = search.value.trim().toLocaleLowerCase('fr');
+      const query = search.value
+        .trim()
+        .toLocaleLowerCase('fr');
+
       let visibleQuestions = 0;
       let visibleGroups = 0;
 
       groups.forEach((group) => {
-        const items = Array.from(group.querySelectorAll<HTMLElement>('[data-faq-item]'));
-        const titleMatches = (group.dataset.title || '').includes(query);
+        const items = Array.from(
+          group.querySelectorAll<HTMLElement>('[data-faq-item]')
+        );
+
+        const titleMatches = (group.dataset.title || '')
+          .toLocaleLowerCase('fr')
+          .includes(query);
+
         let groupQuestions = 0;
+
         items.forEach((item) => {
-          const match = !query || titleMatches || (item.dataset.search || '').toLocaleLowerCase('fr').includes(query);
-          item.hidden = !match;
-          if (match) {
-            groupQuestions += 1;
-            visibleQuestions += 1;
+          const text = (item.dataset.search || '')
+            .toLocaleLowerCase('fr');
+
+          // A category-name match displays all questions in that category.
+          const matches =
+            !query ||
+            titleMatches ||
+            text.includes(query);
+
+          item.hidden = !matches;
+
+          if (matches) {
+            groupQuestions++;
+            visibleQuestions++;
           }
         });
-        const showGroup = !query || groupQuestions > 0 || titleMatches;
+
+        const showGroup = !query || groupQuestions > 0;
+
         group.hidden = !showGroup;
-        if (showGroup) visibleGroups += 1;
+
+        if (showGroup) {
+          visibleGroups++;
+        }
       });
 
-      count.textContent = query
-        ? `${visibleQuestions} question${visibleQuestions > 1 ? 's' : ''} trouvée${visibleQuestions > 1 ? 's' : ''} dans ${visibleGroups} catégorie${visibleGroups > 1 ? 's' : ''}`
-        : '12 catégories · 48 questions';
-      noResults.classList.toggle('hidden', visibleQuestions > 0 || !query);
+      if (!query) {
+        count.textContent =
+          `${groups.length} catégories · ${totalQuestions} questions`;
+      } else {
+        count.textContent =
+          `${visibleQuestions} question${visibleQuestions > 1 ? 's' : ''} ` +
+          `trouvée${visibleQuestions > 1 ? 's' : ''} dans ` +
+          `${visibleGroups} catégorie${visibleGroups > 1 ? 's' : ''}`;
+      }
+
+      noResults.classList.toggle(
+        'hidden',
+        visibleQuestions > 0 || !query
+      );
+
       categoryLinks.forEach((link) => {
-        const target = groups.find((group) => group.id === link.dataset.categoryLink);
+        const target = groups.find(
+          (group) => group.id === link.dataset.categoryLink
+        );
+
         link.hidden = Boolean(query) && (!target || target.hidden);
       });
     };
 
     search.addEventListener('input', update);
+
     reset?.addEventListener('click', () => {
       search.value = '';
       update();
       search.focus();
     });
+
+    categoryLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        categoryLinks.forEach((item) => {
+          item.classList.remove('is-active');
+        });
+
+        link.classList.add('is-active');
+      });
+    });
+
+    update();
   }
 
   document.addEventListener('astro:page-load', initFaqPage);
+
   initFaqPage();
 </script>
 
 <style>
-  .faq-category-link { white-space: nowrap; }
+  /* Category navigation */
+  .faq-category-nav {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .faq-category-link {
+    white-space: nowrap;
+  }
+
+  .faq-category-link.is-active {
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 10%,
+      transparent
+    );
+    color: var(--color-primary);
+  }
+
+  /* Keyboard accessibility */
   .faq-category-link:focus-visible,
   .faq-item summary:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
   }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item[hidden] { display: none; }
-  .faq-group[hidden] { display: none; }
-  .faq-category-link[hidden] { display: none; }
-  .faq-item[open] summary { color: var(--color-primary); }
-  .faq-answer { animation: faq-reveal 180ms ease-out; }
-  @keyframes faq-reveal {
-    from { opacity: 0; transform: translateY(-3px); }
-    to { opacity: 1; transform: translateY(0); }
+
+  /* Remove default disclosure marker */
+  .faq-item summary::-webkit-details-marker {
+    display: none;
   }
+
+  /* Search filtering */
+  .faq-item[hidden],
+  .faq-group[hidden],
+  .faq-category-link[hidden] {
+    display: none !important;
+  }
+
+  /* Open question */
+  .faq-item[open] summary {
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] .faq-toggle {
+    transform: rotate(45deg);
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 8%,
+      transparent
+    );
+  }
+
+  /* Search focus */
+  .faq-search:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      transparent
+    );
+  }
+
+  /* Answer animation */
+  .faq-answer {
+    animation: faq-reveal 180ms ease-out;
+  }
+
+  @keyframes faq-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 639px) {
+    .faq-category-nav {
+      margin-right: -0.25rem;
+      padding-right: 0.25rem;
+    }
+  }
+
+  /* Reduced motion accessibility */
   @media (prefers-reduced-motion: reduce) {
-    .faq-answer { animation: none; }
+    .faq-answer {
+      animation: none;
+    }
   }
 </style>
