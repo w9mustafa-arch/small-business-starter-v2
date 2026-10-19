@@ -134,12 +134,17 @@ export const siteData = {
     ],
   },
 
-  // ── Trust bar items (homepage strip) ─────────────────────────────────────
+// ── Brands strip (homepage) ──────────────────────────────────────────────
   trustItems: [
-    { label: 'Toute Marrakech' },
-    { label: 'Livraison Express' },
-    { label: 'Livreurs Sécurisés' },
-    { label: 'Disponible', value: '24h/24' },
+    { label: "McDonald's" },
+    { label: 'KFC' },
+    { label: 'Burger King' },
+    { label: 'Little Mama' },
+    { label: 'Pizza Hut' },
+    { label: 'Tacos 212' },
+    { label: 'Crusty Rapide' },
+    { label: 'Carrefour' },
+    { label: 'Marjane' },
   ],
 
   // ── Footer nav columns ──────────────────────────────────────────────────
