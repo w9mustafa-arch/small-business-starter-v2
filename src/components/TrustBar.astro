@@ -1,40 +1,16 @@
 ---
-// Brand strip: "enseignes chez lesquelles nous livrons".
-// Logos are optional. Drop a file in src/assets/logos/ named after the slug
-// (e.g. kfc.svg, pizza-hut.png) and it replaces the text name automatically.
+// Brand strip: names only, read from siteData.trustItems.
+import { siteData } from '../data/siteData';
 
 interface Props {
   title?: string;
+  items?: { label: string }[];
 }
 
-const { title = 'Nous livrons depuis vos enseignes préférées' } = Astro.props;
-
-const brands = [
-  { name: "McDonald's", slug: 'mcdonalds' },
-  { name: 'KFC', slug: 'kfc' },
-  { name: 'Burger King', slug: 'burger-king' },
-  { name: 'Little Mama', slug: 'little-mama' },
-  { name: 'Pizza Hut', slug: 'pizza-hut' },
-  { name: 'Tacos 212', slug: 'tacos-212' },
-  { name: 'Crusty Rapide', slug: 'crusty-rapide' },
-  { name: 'Carrefour', slug: 'carrefour' },
-  { name: 'Marjane', slug: 'marjane' },
-];
-
-// Auto-discover logo files (empty object if the folder is empty or missing)
-const files = import.meta.glob('../assets/logos/*.{svg,png,webp,jpg,jpeg,avif}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>;
-
-const logoBySlug: Record<string, string> = {};
-for (const [path, url] of Object.entries(files)) {
-  const slug = path.split('/').pop()!.replace(/\.[^.]+$/, '').toLowerCase();
-  logoBySlug[slug] = url;
-}
-
-const items = brands.map((b) => ({ ...b, logo: logoBySlug[b.slug] }));
+const {
+  title = 'Nous livrons depuis vos enseignes préférées',
+  items = siteData.trustItems,
+} = Astro.props;
 ---
 
 <section class="border-y border-border bg-surface py-8 sm:py-10" aria-label={title}>
@@ -49,24 +25,14 @@ const items = brands.map((b) => ({ ...b, logo: logoBySlug[b.slug] }));
     >
       <ul class="brands-track flex w-max items-center" role="list">
         {[0, 1].map((copy) =>
-          items.map((brand) => (
+          items.map(({ label }) => (
             <li
               class:list={['flex h-12 items-center px-6 sm:px-10', copy === 1 && 'brands-dup']}
               aria-hidden={copy === 1 ? 'true' : undefined}
             >
-              {brand.logo ? (
-                <img
-                  src={brand.logo}
-                  alt={copy === 1 ? '' : brand.name}
-                  loading="lazy"
-                  decoding="async"
-                  class="h-9 w-auto max-w-36 object-contain opacity-70 grayscale transition duration-200 hover:opacity-100 hover:grayscale-0 sm:h-10"
-                />
-              ) : (
-                <span class="whitespace-nowrap font-heading text-lg font-bold uppercase tracking-wide text-text-muted transition-colors hover:text-primary sm:text-xl">
-                  {brand.name}
-                </span>
-              )}
+              <span class="whitespace-nowrap font-heading text-lg font-bold uppercase tracking-wide text-text-muted transition-colors hover:text-primary sm:text-xl">
+                {label}
+              </span>
             </li>
           )),
         )}
