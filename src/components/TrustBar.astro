@@ -1,62 +1,103 @@
 ---
-import { siteData } from '../data/siteData';
-
-type TrustItem = { label: string; value?: string; icon?: string };
+// Brand strip: "enseignes chez lesquelles nous livrons".
+// Logos are optional. Drop a file in src/assets/logos/ named after the slug
+// (e.g. kfc.svg, pizza-hut.png) and it replaces the text name automatically.
 
 interface Props {
-  items?: TrustItem[];
+  title?: string;
 }
 
-const { items = siteData.trustItems } = Astro.props;
+const { title = 'Nous livrons depuis vos enseignes préférées' } = Astro.props;
 
-// Line icons (24×24, stroke = currentColor).
-// Optional: add `icon: 'pin' | 'bolt' | 'shield' | 'clock' | 'star' | 'check'` to an item in siteData.
-const icons: Record<string, string> = {
-  pin: '<path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
-  bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/>',
-  shield: '<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
-  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  star: '<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9L12 3z"/>',
-  check: '<circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/>',
-};
+const brands = [
+  { name: "McDonald's", slug: 'mcdonalds' },
+  { name: 'KFC', slug: 'kfc' },
+  { name: 'Burger King', slug: 'burger-king' },
+  { name: 'Little Mama', slug: 'little-mama' },
+  { name: 'Pizza Hut', slug: 'pizza-hut' },
+  { name: 'Tacos 212', slug: 'tacos-212' },
+  { name: 'Crusty Rapide', slug: 'crusty-rapide' },
+  { name: 'Carrefour', slug: 'carrefour' },
+  { name: 'Marjane', slug: 'marjane' },
+];
 
-// Default order for the 4 standard items: location, speed, safety, availability
-const defaultOrder = ['pin', 'bolt', 'shield', 'clock'];
-const iconFor = (item: TrustItem, index: number) =>
-  icons[item.icon ?? defaultOrder[index] ?? 'check'] ?? icons.check;
+// Auto-discover logo files (empty object if the folder is empty or missing)
+const files = import.meta.glob('../assets/logos/*.{svg,png,webp,jpg,jpeg,avif}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+const logoBySlug: Record<string, string> = {};
+for (const [path, url] of Object.entries(files)) {
+  const slug = path.split('/').pop()!.replace(/\.[^.]+$/, '').toLowerCase();
+  logoBySlug[slug] = url;
+}
+
+const items = brands.map((b) => ({ ...b, logo: logoBySlug[b.slug] }));
 ---
 
-<section class="border-y border-border bg-surface" aria-label="Nos engagements">
-  <div class="mx-auto max-w-site px-4 py-6 sm:px-6 sm:py-8">
-    <ul
-      class="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-4 md:gap-x-0 md:gap-y-0 md:divide-x md:divide-border"
-      role="list"
+<section class="border-y border-border bg-surface py-8 sm:py-10" aria-label={title}>
+  <div class="mx-auto max-w-site px-4 sm:px-6">
+    <p class="mb-6 text-center text-xs font-bold uppercase tracking-widest text-text-muted sm:text-sm">
+      {title}
+    </p>
+
+    <div
+      class="overflow-hidden"
+      style="mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);"
     >
-      {items.map((item, index) => (
-        <li class="flex items-center gap-3 sm:gap-4 md:justify-center md:px-4 lg:px-8">
-          <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary sm:size-12">
-            <svg
-              class="size-5 sm:size-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.75"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              set:html={iconFor(item, index)}
-            />
-          </span>
-          <span class="flex flex-col leading-tight">
-            <span class="font-heading text-sm font-semibold uppercase tracking-wide text-text sm:text-base">
-              {item.label}
-            </span>
-            {item.value && (
-              <span class="mt-0.5 text-sm font-bold text-primary sm:text-base">{item.value}</span>
-            )}
-          </span>
-        </li>
-      ))}
-    </ul>
+      <ul class="brands-track flex w-max items-center" role="list">
+        {[0, 1].map((copy) =>
+          items.map((brand) => (
+            <li
+              class:list={['flex h-12 items-center px-6 sm:px-10', copy === 1 && 'brands-dup']}
+              aria-hidden={copy === 1 ? 'true' : undefined}
+            >
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={copy === 1 ? '' : brand.name}
+                  loading="lazy"
+                  decoding="async"
+                  class="h-9 w-auto max-w-36 object-contain opacity-70 grayscale transition duration-200 hover:opacity-100 hover:grayscale-0 sm:h-10"
+                />
+              ) : (
+                <span class="whitespace-nowrap font-heading text-lg font-bold uppercase tracking-wide text-text-muted transition-colors hover:text-primary sm:text-xl">
+                  {brand.name}
+                </span>
+              )}
+            </li>
+          )),
+        )}
+      </ul>
+    </div>
   </div>
 </section>
+
+<style>
+  .brands-track {
+    animation: brands-scroll 40s linear infinite;
+  }
+  .brands-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes brands-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  /* Respect "reduce motion": static, centered, no duplicate row */
+  @media (prefers-reduced-motion: reduce) {
+    .brands-track {
+      animation: none;
+      width: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 0.5rem;
+    }
+    .brands-dup {
+      display: none;
+    }
+  }
+</style>
