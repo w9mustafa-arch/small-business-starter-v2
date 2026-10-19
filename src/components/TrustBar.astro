@@ -1,22 +1,60 @@
 ---
 import { siteData } from '../data/siteData';
 
+type TrustItem = { label: string; value?: string; icon?: string };
+
 interface Props {
-  items?: { label: string; value?: string }[];
+  items?: TrustItem[];
 }
 
 const { items = siteData.trustItems } = Astro.props;
+
+// Line icons (24×24, stroke = currentColor).
+// Optional: add `icon: 'pin' | 'bolt' | 'shield' | 'clock' | 'star' | 'check'` to an item in siteData.
+const icons: Record<string, string> = {
+  pin: '<path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/>',
+  shield: '<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  star: '<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9L12 3z"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/>',
+};
+
+// Default order for the 4 standard items: location, speed, safety, availability
+const defaultOrder = ['pin', 'bolt', 'shield', 'clock'];
+const iconFor = (item: TrustItem, index: number) =>
+  icons[item.icon ?? defaultOrder[index] ?? 'check'] ?? icons.check;
 ---
 
-<section class="border-y border-border bg-surface" aria-label="Trust signals">
-  <div class="mx-auto max-w-site overflow-x-auto px-4 py-5 sm:px-6 sm:py-6">
-    <ul class="grid grid-cols-2 md:grid-cols-4 mx-auto items-center gap-6" role="list">
-      {items.map(({ label, value }: { label: string; value?: string }) => (
-        <li class="flex shrink-0 items-center justify-center gap-2.5 text-sm sm:text-base">
-          <span class="font-heading font-semibold text-text">
-           {label}
-           {value && <span class="text-primary ml-1">{value}</span>}
-         </span>
+<section class="border-y border-border bg-surface" aria-label="Nos engagements">
+  <div class="mx-auto max-w-site px-4 py-6 sm:px-6 sm:py-8">
+    <ul
+      class="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-4 md:gap-x-0 md:gap-y-0 md:divide-x md:divide-border"
+      role="list"
+    >
+      {items.map((item, index) => (
+        <li class="flex items-center gap-3 sm:gap-4 md:justify-center md:px-4 lg:px-8">
+          <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary sm:size-12">
+            <svg
+              class="size-5 sm:size-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              set:html={iconFor(item, index)}
+            />
+          </span>
+          <span class="flex flex-col leading-tight">
+            <span class="font-heading text-sm font-semibold uppercase tracking-wide text-text sm:text-base">
+              {item.label}
+            </span>
+            {item.value && (
+              <span class="mt-0.5 text-sm font-bold text-primary sm:text-base">{item.value}</span>
+            )}
+          </span>
         </li>
       ))}
     </ul>
