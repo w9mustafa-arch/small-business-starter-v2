@@ -59,6 +59,7 @@ export const siteData = {
     { label: 'Reviews', href: '/reviews' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
+    { label: 'FAQ', href: '/faq' },
   ],
 
   // ── Services ─────────────────────────────────────────────────────────────
