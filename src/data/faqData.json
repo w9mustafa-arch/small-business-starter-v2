@@ -1,0 +1,266 @@
+[
+  {
+    "title": "Livraison dans les riads à Marrakech",
+    "slug": "riad",
+    "items": [
+      [
+        "Livrez-vous directement dans les riads de Marrakech ?",
+        "Oui. Nous pouvons organiser la livraison à votre riad pour les repas, les courses, les fleurs, les achats et les autres demandes acceptées."
+      ],
+      [
+        "Comment vous indiquer l’emplacement d’un riad dans la médina ?",
+        "Envoyez-nous le nom du riad, votre position WhatsApp et, si nécessaire, un repère facile à reconnaître. Ces informations nous aident à préparer l’arrivée du livreur."
+      ],
+      [
+        "Que faire si mon riad se trouve dans une ruelle difficile d’accès ?",
+        "Expliquez-nous l’accès au moment de la commande. Nous conviendrons avec vous du point de rencontre le plus pratique si le véhicule ou le livreur ne peut pas atteindre l’entrée."
+      ],
+      [
+        "Puis-je commander depuis mon riad à toute heure ?",
+        "Vous pouvez nous écrire sur WhatsApp à toute heure. La prise en charge dépend de la demande, de la disponibilité du commerce et des conditions d’accès."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison dans les hôtels à Marrakech",
+    "slug": "hotel",
+    "items": [
+      [
+        "Puis-je recevoir une commande directement à mon hôtel ?",
+        "Oui. Indiquez le nom de l’établissement, son adresse ou sa localisation WhatsApp, ainsi que les détails utiles pour vous retrouver."
+      ],
+      [
+        "Le livreur peut-il remettre la commande à la réception ?",
+        "Si l’hôtel l’autorise, nous pouvons convenir d’une remise à la réception. Sinon, nous coordonnons avec vous un point de rendez-vous adapté aux règles de l’établissement."
+      ],
+      [
+        "Quelles informations dois-je envoyer pour une livraison à l’hôtel ?",
+        "Précisez le nom de l’hôtel, votre prénom si nécessaire, le numéro de chambre uniquement si l’établissement vous autorise à le communiquer, et le contenu de votre demande."
+      ],
+      [
+        "Le service est-il utile aux voyageurs qui ne connaissent pas Marrakech ?",
+        "Oui. Vous pouvez nous envoyer votre demande et votre position sur WhatsApp afin de faciliter l’organisation, même si vous découvrez la ville."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison dans les villas à Marrakech",
+    "slug": "villa",
+    "items": [
+      [
+        "Livrez-vous dans les villas et les résidences privées ?",
+        "Oui. Nous pouvons organiser une livraison à une villa ou à une résidence privée, selon l’emplacement et les conditions d’accès."
+      ],
+      [
+        "Comment expliquer l’accès à une villa située à l’écart ?",
+        "Partagez votre position GPS sur WhatsApp, le nom de la résidence si elle en possède un et les indications nécessaires pour trouver l’entrée."
+      ],
+      [
+        "Puis-je demander plusieurs achats pour une villa ?",
+        "Envoyez la liste des articles souhaités. Nous vous confirmerons les possibilités et les modalités avant de commencer les achats."
+      ],
+      [
+        "Le livreur peut-il entrer dans la propriété ?",
+        "L’accès dépend des règles du lieu et de votre autorisation. Si l’entrée n’est pas possible, nous convenons d’un point de remise avec vous."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison pour les touristes et les visiteurs",
+    "slug": "touristes",
+    "items": [
+      [
+        "Puis-je commander même si je suis en visite à Marrakech ?",
+        "Oui. Contactez-nous sur WhatsApp, décrivez ce dont vous avez besoin et partagez votre localisation pour organiser la demande."
+      ],
+      [
+        "Pouvez-vous livrer à mon logement de vacances ?",
+        "Nous pouvons organiser une remise à votre hôtel, riad, villa ou autre logement, sous réserve de l’adresse et des conditions d’accès."
+      ],
+      [
+        "Comment commander si je ne connais pas les commerces du quartier ?",
+        "Expliquez-nous le produit ou le type de repas recherché. Nous vous aiderons à préciser la demande avant de confirmer les achats possibles."
+      ],
+      [
+        "Comment savoir si ma demande peut être prise en charge ?",
+        "Envoyez les détails et votre emplacement sur WhatsApp. Nous vous répondrons pour confirmer la faisabilité et les prochaines étapes."
+      ]
+    ]
+  },
+  {
+    "title": "Courses en pharmacie",
+    "slug": "pharmacie",
+    "items": [
+      [
+        "Pouvez-vous acheter des produits dans une pharmacie ?",
+        "Oui. Nous pouvons prendre en charge les demandes de produits de pharmacie autorisés, selon leur disponibilité et les règles applicables."
+      ],
+      [
+        "Comment transmettre ma liste de produits ?",
+        "Envoyez le nom exact des produits ou une photo lisible de la liste sur WhatsApp. Nous vérifierons les possibilités avant l’achat."
+      ],
+      [
+        "Pouvez-vous livrer des médicaments nécessitant une ordonnance ?",
+        "La délivrance dépend des règles de la pharmacie et de la réglementation applicable. Une ordonnance peut être exigée et nous ne pouvons pas garantir la disponibilité d’un médicament."
+      ],
+      [
+        "Que faire si le produit demandé est indisponible ?",
+        "Nous vous contactons pour vous informer de la situation. Aucun remplacement ne doit être effectué sans votre accord."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison de courses et d’épicerie",
+    "slug": "courses",
+    "items": [
+      [
+        "Pouvez-vous faire les courses à ma place ?",
+        "Oui. Envoyez votre liste et, si vous le souhaitez, le magasin où vous préférez acheter les articles."
+      ],
+      [
+        "Quels types de produits puis-je demander ?",
+        "Vous pouvez demander des produits d’épicerie et des articles du quotidien disponibles dans le commerce choisi, sous réserve des restrictions applicables."
+      ],
+      [
+        "Puis-je préciser une marque ou un format ?",
+        "Oui. Ajoutez la marque, la taille, la quantité ou toute préférence utile dans votre message WhatsApp."
+      ],
+      [
+        "Me contactez-vous si un article manque en magasin ?",
+        "Oui, nous pouvons vous demander votre accord avant de choisir une alternative ou de retirer l’article de la liste."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison de repas et de restaurants",
+    "slug": "repas",
+    "items": [
+      [
+        "Pouvez-vous récupérer un repas dans un restaurant à Marrakech ?",
+        "Oui. Nous pouvons organiser la récupération de commandes auprès de restaurants, selon leur disponibilité et leur capacité à préparer la commande."
+      ],
+      [
+        "Comment commander un repas avec Livraison Plus ?",
+        "Envoyez le nom du restaurant, les plats souhaités et votre localisation sur WhatsApp. Nous confirmerons avec vous les détails de la demande."
+      ],
+      [
+        "Puis-je demander un repas provenant d’un restaurant précis ?",
+        "Oui. Indiquez le nom du restaurant et votre commande. La prise en charge dépend des horaires, de la zone et de la disponibilité du restaurant."
+      ],
+      [
+        "Livrez-vous à domicile, au bureau ou à l’hôtel ?",
+        "Nous pouvons convenir d’une remise à domicile, au bureau, à l’hôtel ou à un autre point accessible à Marrakech."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison sur les parcours de golf",
+    "slug": "golf",
+    "items": [
+      [
+        "Pouvez-vous organiser une livraison près d’un parcours de golf ?",
+        "Nous pouvons étudier une demande de livraison à proximité d’un parcours de golf ou à un point de rendez-vous autorisé."
+      ],
+      [
+        "Comment indiquer le lieu de remise sur un parcours ?",
+        "Envoyez le nom du parcours, une localisation précise et les indications du point de rencontre convenu."
+      ],
+      [
+        "Le livreur peut-il accéder directement au parcours ?",
+        "L’accès dépend des règles du club et des autorisations sur place. Nous convenons d’un point de remise conforme aux consignes de l’établissement."
+      ],
+      [
+        "Puis-je faire livrer des courses ou des articles pendant ma journée de golf ?",
+        "Décrivez les articles souhaités et le lieu de remise sur WhatsApp. Nous vous confirmerons si la demande peut être organisée."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison de nuit et disponibilité 24 h/24",
+    "slug": "nuit",
+    "items": [
+      [
+        "Puis-je contacter Livraison Plus la nuit ?",
+        "Oui. Vous pouvez envoyer votre demande sur WhatsApp à toute heure, 24 h/24 et 7 j/7."
+      ],
+      [
+        "Toutes les commandes sont-elles réalisables la nuit ?",
+        "Pas nécessairement. La prise en charge dépend de l’ouverture des commerces, de la disponibilité des produits et des conditions de livraison."
+      ],
+      [
+        "Comment accélérer le traitement d’une demande urgente ?",
+        "Indiquez dès le premier message ce dont vous avez besoin, votre position exacte et le point de livraison souhaité."
+      ],
+      [
+        "Comment confirmer qu’une livraison nocturne est possible ?",
+        "Contactez-nous sur WhatsApp. Nous vérifierons les détails de votre demande et vous confirmerons les possibilités avant de la prendre en charge."
+      ]
+    ]
+  },
+  {
+    "title": "Livraison de fleurs et de cadeaux",
+    "slug": "fleurs-cadeaux",
+    "items": [
+      [
+        "Pouvez-vous récupérer et livrer des fleurs ou un cadeau ?",
+        "Oui. Nous pouvons organiser la récupération et la livraison de fleurs ou de cadeaux, selon la disponibilité du vendeur."
+      ],
+      [
+        "Puis-je faire livrer un cadeau à une autre personne ?",
+        "Oui. Indiquez l’adresse ou la localisation du destinataire, son nom si nécessaire et les consignes utiles pour la remise."
+      ],
+      [
+        "Pouvez-vous joindre un message au cadeau ?",
+        "Précisez votre souhait au moment de la demande. La possibilité d’ajouter une carte ou un message dépend du vendeur."
+      ],
+      [
+        "Comment éviter une erreur dans la livraison ?",
+        "Vérifiez le nom du destinataire, le numéro de téléphone utile et la localisation avant de confirmer la commande."
+      ]
+    ]
+  },
+  {
+    "title": "Pressing et blanchisserie",
+    "slug": "pressing",
+    "items": [
+      [
+        "Pouvez-vous déposer ou récupérer du linge au pressing ?",
+        "Oui. Nous pouvons organiser le transport de linge vers un pressing ou sa récupération, selon les horaires et les modalités du commerce."
+      ],
+      [
+        "Pouvez-vous faire livrer le linge à mon hôtel ou à mon domicile ?",
+        "Nous pouvons convenir d’un point de remise à votre domicile, hôtel, riad ou autre lieu accessible."
+      ],
+      [
+        "Comment organiser une demande de pressing ?",
+        "Envoyez-nous le lieu de collecte, le pressing souhaité si vous en avez un, ainsi que le point de retour sur WhatsApp."
+      ],
+      [
+        "Le délai du pressing est-il garanti ?",
+        "Le délai dépend du prestataire de pressing. Nous vous aidons à coordonner la collecte et la remise selon les informations confirmées par celui-ci."
+      ]
+    ]
+  },
+  {
+    "title": "Commande, organisation et paiement",
+    "slug": "commande-paiement",
+    "items": [
+      [
+        "Comment passer une commande auprès de Livraison Plus ?",
+        "Écrivez-nous sur WhatsApp, décrivez le service souhaité et partagez votre localisation ainsi que les informations nécessaires."
+      ],
+      [
+        "Quelles informations faut-il fournir ?",
+        "Précisez les articles ou le service demandé, le commerce éventuel, l’adresse ou la position GPS et vos préférences importantes."
+      ],
+      [
+        "Comment les modalités de paiement sont-elles confirmées ?",
+        "Les modalités applicables à votre demande vous sont communiquées avant la prise en charge. Demandez confirmation si vous avez une préférence particulière."
+      ],
+      [
+        "Puis-je suivre l’avancement de ma demande ?",
+        "Vous pouvez échanger avec nous sur WhatsApp pour obtenir des nouvelles et coordonner la remise de la commande."
+      ]
+    ]
+  }
+]
