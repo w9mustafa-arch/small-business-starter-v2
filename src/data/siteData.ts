@@ -18,7 +18,7 @@ export const siteData = {
   description:
     'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
   url: 'https://example.com',
-  locale: 'en_US',
+  locale: 'fr_FR',
 
   /** Business / contractor license number. Displayed in the header and footer
    *  as a trust signal. Set to an empty string to hide it. */
@@ -62,48 +62,47 @@ export const siteData = {
     { label: 'FAQ', href: '/faq' },
   ],
 
-  // ── Services ─────────────────────────────────────────────────────────────
-      services: [
+services: [
   {
-    title: 'Livraison de Repas à Marrakech',
+    title: 'Livraison de repas',
     description:
-      'Faites-vous livrer vos plats préférés depuis les restaurants de Marrakech, à domicile, au bureau ou à votre riad.',
+      'Indiquez le restaurant et vos plats. Nous récupérons votre commande et la livrons à domicile, au bureau ou à l’hôtel.',
     buttonText: 'Commander un repas',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Courses & Supermarché à Domicile',
+    title: 'Courses & supermarché',
     description:
-      'Envoyez-nous votre liste de courses. Nous effectuons vos achats au supermarché et vous les livrons à domicile.',
+      'Envoyez votre liste de courses. Nous achetons les produits demandés et les livrons à votre domicile ou à votre hôtel.',
     buttonText: 'Envoyer ma liste',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Pharmacie & Produits de Santé',
+    title: 'Pharmacie',
     description:
-      'Besoin d’un produit de pharmacie ? Contactez-nous pour organiser la récupération et la livraison de vos achats.',
-    buttonText: 'Faire une demande',
+      'Envoyez le nom des produits souhaités. Nous vérifions leur disponibilité en pharmacie et organisons la livraison.',
+    buttonText: 'Demander un produit',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Livraison aux Riads & Hôtels',
+    title: 'Pressing',
     description:
-      'En séjour à Marrakech ? Recevez vos repas et vos achats directement à votre riad, hôtel ou lieu de séjour.',
-    buttonText: 'Organiser ma livraison',
+      'Nous récupérons ou déposons votre linge au pressing et assurons son transport entre le pressing et votre domicile ou hôtel.',
+    buttonText: 'Organiser ma demande',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Livraison de Colis & Documents',
+    title: 'Fleurs & cadeaux',
     description:
-      'Un colis ou un document à envoyer à Marrakech ? Nous le récupérons et le livrons à son destinataire.',
-    buttonText: 'Envoyer un colis',
+      'Envoyez-nous votre demande et l’adresse de livraison. Nous récupérons votre bouquet ou cadeau et le livrons au destinataire.',
+    buttonText: 'Faire livrer un cadeau',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Service de Coursier Personnalisé',
+    title: 'Coursier à la demande',
     description:
-      'Un achat à récupérer ou une course à effectuer ? Expliquez-nous votre besoin pour organiser votre livraison.',
-    buttonText: 'Faire une demande',
+      'Un colis, un document ou un achat à récupérer ? Contactez-nous sur WhatsApp pour organiser votre livraison à Marrakech.',
+    buttonText: 'Décrire ma demande',
     href: 'https://wa.me/212674007161',
   },
 ],
