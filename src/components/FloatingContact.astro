@@ -30,7 +30,7 @@ const waHref = `https://wa.me/${waNumber}?text=${waText}`;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #25d366;
+    background-color: var(--color-accent);
     color: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -42,8 +42,8 @@ const waHref = `https://wa.me/${waNumber}?text=${waText}`;
   }
 
   .wa-float:hover {
-    background-color: #20bf6b;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #166534;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
   /* النبضة */
@@ -53,7 +53,7 @@ const waHref = `https://wa.me/${waNumber}?text=${waText}`;
     inset: 0;
     z-index: -1;
     border-radius: 50%;
-    background-color: #25d366;
+    background-color: var(--color-accent);
     opacity: 0.6;
     animation: wa-pulse 1.8s ease-out infinite;
   }
