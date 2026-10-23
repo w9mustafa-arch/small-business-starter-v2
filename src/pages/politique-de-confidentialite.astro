@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { brand } from '../config/brand';
+import { privacyPolicy } from '../data/privacy';
+
+const title = 'Confidentialité';
+const description =
+  'Découvrez comment Livraison Plus collecte, utilise et protège vos données personnelles, ainsi que les droits dont vous disposez.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header slot="header" />
+
+  <Banner title={title} />
+
+  <LegalPage
+    effectiveDate={privacyPolicy.effectiveDate}
+    sections={privacyPolicy.sections}
+  />
+
+  <Footer slot="footer" />
+</BaseLayout>
