@@ -51,8 +51,8 @@ export const siteData = {
 
   // ── Navigation (add, remove, or reorder as needed) ───────────────────────
   nav: [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
+    { label: 'Accueil', href: '/' },
+    { label: 'À propos', href: '/a-propos' },
     { label: 'Services', href: '/services' },
     { label: 'Avis Clients', href: '/avis' },
     { label: 'Blog', href: '/blog' },
@@ -149,9 +149,9 @@ services: [
     {
       title: 'Company',
       links: [
-        { label: 'About', href: '/about' },
+        { label: 'À propos', href: '/a-propos' },
         { label: 'Services', href: '/services' },
-        { label: 'Reviews', href: '/reviews' },
+        { label: 'Avis Clients', href: '/avis' },
         { label: 'Blog', href: '/blog' },
       ],
     },
