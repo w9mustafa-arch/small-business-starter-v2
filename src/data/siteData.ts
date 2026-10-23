@@ -56,7 +56,7 @@ export const siteData = {
     { label: 'Services', href: '/services' },
     { label: 'Avis Clients', href: '/avis' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Contactez-nous', href: '/contactez-nous' },
     { label: 'FAQ', href: '/faq' },
   ],
 
@@ -158,7 +158,7 @@ services: [
     {
       title: 'Support',
       links: [
-        { label: 'Contact', href: '/contact' },
+        { label: 'Contactez-nous', href: '/contactez-nous' },
         { label: 'Confidentialité', href: '/politique-de-confidentialite' },
         { label: 'CGU', href: '/conditions-generales-dutilisation' },
       ],
