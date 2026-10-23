@@ -5,24 +5,54 @@ import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
 import CTA from '../components/CTA.astro';
 import { Image } from 'astro:assets';
-import { brand } from '../config/brand';
-import { siteData } from '../data/siteData';
+import { aboutImage } from '../config/images';
 
-const { about } = siteData;
+const reasons = [
+  {
+    title: '24h/24, 7j/7',
+    text: 'Écrivez-nous à toute heure, de jour comme de nuit.',
+  },
+  {
+    title: 'Commande par WhatsApp',
+    text: 'Un message suffit. Pas d’application à installer.',
+  },
+  {
+    title: 'Une équipe de 5 livreurs',
+    text: 'Des livreurs qui connaissent bien Marrakech et ses ruelles.',
+  },
+  {
+    title: 'Riads, hôtels et villas',
+    text: 'Livraison directement chez vous, où que vous logiez.',
+  },
+];
+
+const zones = [
+  'Guéliz',
+  'Médina',
+  'Hivernage',
+  'Palmeraie',
+  'Agdal',
+  'Targa',
+  'Route de l’Ourika',
+  'Sidi Youssef Ben Ali',
+];
 ---
 
-<BaseLayout title="About Us" description={`Learn about ${brand.name} — our story, team, and commitment to quality service.`}>
+<BaseLayout
+  title="Qui sommes-nous ? Livreur à Marrakech"
+  description="Livraison Plus : une équipe de 5 livreurs à Marrakech depuis 5 ans. Repas, courses, pharmacie et colis livrés 24h/24, 7j/7."
+>
   <Header slot="header" />
 
-  <Banner title="About Us" />
+  <Banner title="Qui sommes-nous ?" />
 
-  <!-- Story -->
+  <!-- Histoire -->
   <section class="py-section">
     <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
       <div class="overflow-hidden rounded-lg shadow-lg">
         <Image
-          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
-          alt="Our team planning a project together"
+          src={aboutImage}
+          alt="Équipe de livreurs Livraison Plus à Marrakech"
           width={800}
           height={600}
           loading="lazy"
@@ -30,41 +60,57 @@ const { about } = siteData;
         />
       </div>
       <div class="space-y-5">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Story</span>
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">Built on trust, driven by quality</h2>
-        {about.story.map((paragraph) => (
-          <p class="text-text-muted leading-relaxed">{paragraph}</p>
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Notre histoire</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Livreur à Marrakech depuis 5 ans</h2>
+        <p class="text-text-muted leading-relaxed">
+          Livraison Plus est née à Marrakech d’un besoin simple : se faire livrer vite, sans complications.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Aujourd’hui, nous sommes une équipe de 5 livreurs. Vous nous écrivez sur WhatsApp, nous récupérons votre commande et la livrons où vous voulez, de jour comme de nuit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi nous -->
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Pourquoi nous choisir</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Simple, rapide, fiable</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {reasons.map(({ title, text }) => (
+          <div class="rounded-lg bg-background p-6 shadow-sm">
+            <h3 class="font-heading text-lg font-semibold text-text">{title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">{text}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Team -->
-  <section class="bg-surface py-section">
-    <div class="mx-auto max-w-site px-4 sm:px-6">
-      <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Team</span>
-        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Meet the crew</h2>
-      </div>
+  <!-- Zones -->
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <span class="text-topper font-bold uppercase tracking-widest text-accent">Zones de service</span>
+      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Livraison dans tout Marrakech</h2>
+      <p class="mx-auto mt-3 max-w-xl text-text-muted leading-relaxed">
+        Nous livrons dans la plupart des quartiers de la ville.
+      </p>
 
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {about.team.map(({ name, role, image }) => (
-          <div class="overflow-hidden rounded-lg bg-background shadow-sm">
-            <Image
-              src={image}
-              alt={name}
-              width={400}
-              height={400}
-              loading="lazy"
-              class="aspect-square w-full object-cover"
-            />
-            <div class="p-5">
-              <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
-              <p class="text-sm text-text-muted">{role}</p>
-            </div>
-          </div>
+      <ul class="mt-8 flex flex-wrap justify-center gap-3" role="list">
+        {zones.map((zone) => (
+          <li class="rounded-full border border-border bg-surface px-5 py-2 text-sm font-medium text-text">
+            {zone}
+          </li>
         ))}
-      </div>
+      </ul>
+
+      <p class="mt-6 text-sm text-text-muted">
+        Votre quartier n’est pas dans la liste ? Écrivez-nous, nous vérifions la disponibilité.
+      </p>
     </div>
   </section>
 
