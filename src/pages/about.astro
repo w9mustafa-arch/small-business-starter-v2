@@ -36,11 +36,45 @@ const zones = [
   'Route de l’Ourika',
   'Sidi Youssef Ben Ali',
 ];
+
+const faqs = [
+  {
+    q: 'Comment passer une commande ?',
+    a: 'Écrivez-nous sur WhatsApp, décrivez votre demande et partagez votre position. Nous organisons la livraison avec vous.',
+  },
+  {
+    q: 'Êtes-vous disponibles la nuit ?',
+    a: 'Vous pouvez nous écrire à toute heure, 24h/24 et 7j/7. La prise en charge dépend de l’ouverture des commerces.',
+  },
+  {
+    q: 'Quels services proposez-vous ?',
+    a: 'Repas, courses, pharmacie, pressing, fleurs et cadeaux, colis et documents à Marrakech.',
+  },
+  {
+    q: 'Livrez-vous dans les riads et les hôtels ?',
+    a: 'Oui. Envoyez-nous le nom du lieu et votre position WhatsApp, nous nous occupons du reste.',
+  },
+  {
+    q: 'Comment le paiement est-il confirmé ?',
+    a: 'Les modalités de paiement vous sont communiquées avant la prise en charge de votre demande.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 ---
 
 <BaseLayout
   title="Qui sommes-nous ? Livreur à Marrakech"
   description="Livraison Plus : une équipe de 5 livreurs à Marrakech depuis 5 ans. Repas, courses, pharmacie et colis livrés 24h/24, 7j/7."
+  schema={faqSchema}
 >
   <Header slot="header" />
 
@@ -60,7 +94,7 @@ const zones = [
         />
       </div>
       <div class="space-y-5">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Notre histoire</span>
+        <span class="text-topper font-bold uppercase tracking-widest text-primary">Notre histoire</span>
         <h2 class="font-heading text-h2 font-bold uppercase text-text">Livreur à Marrakech depuis 5 ans</h2>
         <p class="text-text-muted leading-relaxed">
           Livraison Plus est née à Marrakech d’un besoin simple : se faire livrer vite, sans complications.
@@ -76,7 +110,7 @@ const zones = [
   <section class="bg-surface py-section">
     <div class="mx-auto max-w-site px-4 sm:px-6">
       <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Pourquoi nous choisir</span>
+        <span class="text-topper font-bold uppercase tracking-widest text-primary">Pourquoi nous choisir</span>
         <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Simple, rapide, fiable</h2>
       </div>
 
@@ -94,7 +128,7 @@ const zones = [
   <!-- Zones -->
   <section class="py-section">
     <div class="mx-auto max-w-site px-4 text-center sm:px-6">
-      <span class="text-topper font-bold uppercase tracking-widest text-accent">Zones de service</span>
+      <span class="text-topper font-bold uppercase tracking-widest text-primary">Zones de service</span>
       <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Livraison dans tout Marrakech</h2>
       <p class="mx-auto mt-3 max-w-xl text-text-muted leading-relaxed">
         Nous livrons dans la plupart des quartiers de la ville.
@@ -110,6 +144,32 @@ const zones = [
 
       <p class="mt-6 text-sm text-text-muted">
         Votre quartier n’est pas dans la liste ? Écrivez-nous, nous vérifions la disponibilité.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="mb-10 text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-primary">FAQ</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Questions fréquentes</h2>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map(({ q, a }) => (
+          <details class="group rounded-lg border border-border bg-background px-5 py-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-text">
+              {q}
+              <span class="shrink-0 text-primary transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-text-muted">{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="mt-8 text-center">
+        <a href="/faq" class="font-semibold text-primary hover:underline">Voir toutes les questions</a>
       </p>
     </div>
   </section>
