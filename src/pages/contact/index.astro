@@ -9,11 +9,11 @@ import { siteData } from "../../data/siteData";
 
 <BaseLayout
   title="Contact"
-  description={`Get in touch with ${brand.name}. Request a free quote or ask us a question.`}
+  description={`Contactez ${brand.name} à Marrakech. Envoyez-nous votre demande de livraison ou posez-nous une question.`}
 >
   <Header slot="header" />
 
-  <Banner title="Contact Us" />
+  <Banner title="Contactez-nous" />
 
   <section class="py-section">
     <div
@@ -22,11 +22,11 @@ import { siteData } from "../../data/siteData";
       <!-- Form -->
       <div class="lg:col-span-3">
         <h2 class="font-heading text-h2 font-bold uppercase text-text">
-          Send us a message
+          Envoyez-nous un message
         </h2>
         <p class="mt-2 mb-8 text-text-muted">
-          Fill out the form below and we&rsquo;ll get back to you within one
-          business day.
+          Remplissez le formulaire ci-dessous et nous vous répondrons dans les
+          plus brefs délais. Pour une commande urgente, écrivez-nous sur WhatsApp.
         </p>
 
         <form
@@ -50,7 +50,7 @@ import { siteData } from "../../data/siteData";
 
           <label class="flex flex-col gap-1.5">
             <span class="text-sm font-medium text-text"
-              >Name{" "}<span class="text-accent" aria-hidden="true">*</span
+              >Nom{" "}<span class="text-accent" aria-hidden="true">*</span
               ></span
             >
             <input
@@ -77,7 +77,7 @@ import { siteData } from "../../data/siteData";
           </label>
 
           <label class="flex flex-col gap-1.5">
-            <span class="text-sm font-medium text-text">Phone</span>
+            <span class="text-sm font-medium text-text">Téléphone</span>
             <input
               type="tel"
               name="phone"
@@ -104,7 +104,7 @@ import { siteData } from "../../data/siteData";
             type="submit"
             class="mt-2 inline-flex min-h-11 cursor-pointer items-center justify-center self-start rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            Send Message
+            Envoyer le message
           </button>
         </form>
       </div>
@@ -112,7 +112,7 @@ import { siteData } from "../../data/siteData";
       <!-- Contact info sidebar -->
       <aside class="space-y-8 lg:col-span-2">
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Call Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Appelez-nous</h3>
           <a
             href={`tel:${siteData.phoneForTel}`}
             class="mt-1 block font-medium text-primary-light transition-colors hover:text-primary"
@@ -122,7 +122,7 @@ import { siteData } from "../../data/siteData";
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Email Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Écrivez-nous</h3>
           <a
             href={`mailto:${siteData.email}`}
             class="mt-1 block font-medium text-primary-light transition-colors hover:text-primary"
@@ -132,14 +132,21 @@ import { siteData } from "../../data/siteData";
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Visit Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Zone de service</h3>
           <a
             href={siteData.address.mapLink}
             target="_blank"
             rel="noopener noreferrer"
             class="mt-1 block text-text-muted transition-colors hover:text-text"
           >
-            {siteData.address.lineOne}<br />
+            {
+              siteData.address.lineOne && (
+                <>
+                  {siteData.address.lineOne}
+                  <br />
+                </>
+              )
+            }
             {
               siteData.address.lineTwo && (
                 <>
@@ -148,14 +155,14 @@ import { siteData } from "../../data/siteData";
                 </>
               )
             }
-            {siteData.address.city}, {siteData.address.state}{" "}{
-              siteData.address.zip
-            }
+            {[siteData.address.city, siteData.address.state, siteData.address.zip]
+              .filter(Boolean)
+              .join(", ")}
           </a>
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Hours</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Horaires</h3>
           <div class="mt-1 space-y-1 text-text-muted">
             {
               siteData.hours.map(({ days, time }) => (
