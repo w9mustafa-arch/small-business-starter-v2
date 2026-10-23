@@ -40,7 +40,7 @@ export const siteData = {
   hours: [
   { days: 'Tous les jours', time: '24h/24' },
 ],
-  emergencyService: '24/7 Emergency Service Available',
+  emergencyService: 'Service disponible 24h/24 et 7j/7',
 
   // ── Social media (set to empty string to hide a link) ────────────────────
   socials: {
