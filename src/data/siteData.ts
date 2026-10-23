@@ -160,7 +160,7 @@ services: [
       links: [
         { label: 'Contact', href: '/contact' },
         { label: 'Confidentialité', href: '/politique-de-confidentialite' },
-        { label: 'Terms', href: '/terms' },
+        { label: 'CGU', href: '/conditions-generales-dutilisation' },
       ],
     },
   ],
