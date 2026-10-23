@@ -6,14 +6,21 @@ import Banner from '../components/Banner.astro';
 import LegalPage from '../components/LegalPage.astro';
 import { brand } from '../config/brand';
 import { privacyPolicy } from '../data/privacy';
+
+const title = 'Politique de confidentialité';
+const description =
+  'Découvrez comment Livraison Plus collecte, utilise et protège vos données personnelles, ainsi que les droits dont vous disposez.';
 ---
 
-<BaseLayout title="Privacy Policy" description={`Privacy Policy for ${brand.name}. Learn how we collect, use, and protect your information.`}>
+<BaseLayout title={title} description={description}>
   <Header slot="header" />
 
-  <Banner title="Privacy Policy" />
+  <Banner title={title} />
 
-  <LegalPage effectiveDate={privacyPolicy.effectiveDate} sections={privacyPolicy.sections} />
+  <LegalPage
+    effectiveDate={privacyPolicy.effectiveDate}
+    sections={privacyPolicy.sections}
+  />
 
   <Footer slot="footer" />
 </BaseLayout>
