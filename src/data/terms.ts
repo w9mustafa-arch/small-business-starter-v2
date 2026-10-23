@@ -1,81 +1,91 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * TERMS OF SERVICE — edit the sections below with your own terms.
+ * CONDITIONS GÉNÉRALES D’UTILISATION — Livraison Plus
  * ─────────────────────────────────────────────────────────────────────────────
- * Each section has a `heading` and a `content` array of paragraphs.
- * Add, remove, or reorder sections as needed for your business.
- *
- * The `effectiveDate` is displayed at the top of the page.
+ * Chaque section comprend un titre et un tableau de paragraphes.
+ * La date de mise à jour est affichée en haut de la page.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
 export const termsOfService = {
-  effectiveDate: 'September 1, 2026',
+  effectiveDate: '23 octobre 2026',
 
   sections: [
     {
-      heading: 'Acceptance of Terms',
+      heading: '1. Présentation',
       content: [
-        'By accessing or using our website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.',
+        'Bienvenue sur le site de Livraison Plus, un service indépendant de livraison et de courses à Marrakech et dans les environs.',
+        'Les présentes Conditions générales d’utilisation (« CGU ») encadrent l’accès au site www.livraisonplus.ma et l’utilisation des services proposés. En utilisant le site ou en sollicitant un service, vous reconnaissez avoir pris connaissance des présentes conditions.',
       ],
     },
     {
-      heading: 'Services',
+      heading: '2. Objet',
       content: [
-        'We provide general contracting, repair, installation, inspection, remodeling, and maintenance services as described on our website. All services are subject to availability and may vary by location.',
-        'Specific terms for individual projects — including scope of work, timelines, and pricing — will be outlined in a separate written estimate or contract provided before work begins.',
+        'Les présentes CGU définissent les règles d’utilisation du site et les principales conditions applicables aux demandes de livraison, de courses et d’achats effectués pour le compte du client.',
+        'Les demandes de service sont organisées selon les informations communiquées par le client, la disponibilité des articles et des commerces, ainsi que les possibilités de livraison au moment de la demande.',
       ],
     },
     {
-      heading: 'Estimates & Pricing',
+      heading: '3. Utilisation des services',
       content: [
-        'Estimates are provided based on the information available at the time of assessment. Actual costs may vary if unforeseen conditions are discovered during the course of work. We will communicate any changes to scope or pricing before proceeding.',
-        'Payment terms, accepted methods, and any deposit requirements will be specified in your individual service agreement.',
+        'Le client peut contacter Livraison Plus, notamment par WhatsApp ou par téléphone, pour préciser sa demande, les articles souhaités et le lieu de livraison.',
+        'Le client s’engage à fournir des informations exactes et suffisamment précises, notamment concernant les articles demandés, ses coordonnées et l’adresse de livraison.',
+        'L’acceptation d’une demande dépend de sa faisabilité, de la disponibilité des produits et de la possibilité d’effectuer la livraison. Une demande n’est confirmée qu’après échange avec Livraison Plus.',
       ],
     },
     {
-      heading: 'Scheduling & Cancellations',
+      heading: '4. Disponibilité du site',
       content: [
-        'We make every effort to arrive within the scheduled time window. However, service times may occasionally shift due to weather, prior job complexity, or emergency calls.',
-        'If you need to reschedule or cancel an appointment, please contact us at least 24 hours in advance. Cancellation fees may apply for missed appointments without adequate notice.',
+        'Livraison Plus s’efforce de maintenir le site accessible. Toutefois, l’accès peut être temporairement interrompu en raison d’opérations de maintenance, de mises à jour, de problèmes techniques ou de circonstances indépendantes de notre volonté.',
+        'Les informations publiées sur le site sont fournies à titre informatif et peuvent être modifiées. Nous faisons des efforts raisonnables pour les maintenir à jour, sans garantir que le site sera disponible en permanence ou exempt d’erreurs.',
       ],
     },
     {
-      heading: 'Warranties & Guarantees',
+      heading: '5. Commandes, achats et livraison',
       content: [
-        'We stand behind our workmanship and offer a satisfaction guarantee on all services performed. Specific warranty terms will be detailed in your service agreement.',
-        'Warranties do not cover damage caused by misuse, neglect, acts of nature, or modifications made by others after our work is completed.',
+        'Les produits restent soumis à leur disponibilité auprès des commerces concernés. Livraison Plus ne peut garantir la disponibilité, le prix, la qualité ou les délais annoncés par un commerce tiers.',
+        'Le client doit vérifier les informations de sa demande et préciser toute instruction utile avant la confirmation. En cas d’indisponibilité d’un article ou de difficulté affectant la livraison, Livraison Plus peut contacter le client afin de convenir d’une solution.',
+        'Les modalités pratiques de paiement et de livraison sont communiquées au client lors de l’organisation de sa demande. Aucun délai précis n’est garanti tant qu’il n’a pas été confirmé.',
       ],
     },
     {
-      heading: 'Limitation of Liability',
+      heading: '6. Obligations du client',
       content: [
-        'To the fullest extent permitted by law, our total liability for any claim arising from our services shall not exceed the amount you paid for the specific service giving rise to the claim.',
-        'We are not liable for indirect, incidental, or consequential damages, including lost profits or data, even if we have been advised of the possibility of such damages.',
+        'Le client s’engage à communiquer des informations de contact valides, à fournir une adresse de livraison correcte et à rester joignable si des précisions sont nécessaires.',
+        'Le client doit s’assurer qu’une personne peut réceptionner la livraison au lieu convenu. Tout changement d’adresse ou d’instruction doit être signalé dès que possible.',
+        'Les services ne doivent pas être utilisés à des fins illicites ni pour demander la livraison d’articles dont la vente ou la livraison est interdite par la loi.',
       ],
     },
     {
-      heading: 'Intellectual Property',
+      heading: '7. Responsabilité',
       content: [
-        'All content on this website — including text, images, logos, and design — is our property or used with permission and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from this content without our written consent.',
+        'Livraison Plus met en œuvre des efforts raisonnables pour traiter les demandes avec soin. Toutefois, les délais et la réalisation d’une demande peuvent dépendre de facteurs externes, notamment la circulation, la météo, la disponibilité des produits ou les horaires des commerces.',
+        'Dans les limites autorisées par la loi, Livraison Plus ne peut être tenu responsable des interruptions du site ou des retards et indisponibilités causés par des circonstances indépendantes de son contrôle. Cette disposition ne limite pas les droits dont le client bénéficie impérativement en vertu de la législation applicable.',
       ],
     },
     {
-      heading: 'Governing Law',
+      heading: '8. Propriété intellectuelle',
       content: [
-        'These Terms of Service are governed by and construed in accordance with the laws of the state in which our business is registered, without regard to conflict of law principles.',
+        'Les éléments du site, notamment les textes, visuels, logos et éléments graphiques, sont protégés par les règles applicables en matière de propriété intellectuelle. Ils appartiennent à Livraison Plus ou sont utilisés avec l’autorisation de leurs titulaires.',
+        'Toute reproduction ou réutilisation de ces éléments sans autorisation préalable est interdite, sauf dans les cas permis par la loi.',
       ],
     },
     {
-      heading: 'Changes to These Terms',
+      heading: '9. Modification des CGU',
       content: [
-        'We reserve the right to update these Terms of Service at any time. Changes will be posted on this page with a revised effective date. Your continued use of our website or services after changes are posted constitutes acceptance of the updated terms.',
+        'Livraison Plus peut mettre à jour les présentes CGU afin de refléter les évolutions du site ou des services. La version en vigueur est celle publiée sur cette page, accompagnée de sa date de mise à jour.',
       ],
     },
     {
-      heading: 'Contact Us',
+      heading: '10. Droit applicable',
       content: [
-        'If you have questions about these Terms of Service, please contact us using the information on our Contact page.',
+        'Les présentes CGU sont soumises au droit marocain, sous réserve des dispositions impératives applicables. En cas de difficulté, les parties sont invitées à rechercher une solution amiable avant toute autre démarche.',
+      ],
+    },
+    {
+      heading: '11. Nous contacter',
+      content: [
+        'Pour toute question concernant ces conditions ou les services de Livraison Plus, vous pouvez nous contacter par e-mail à contact@livraisonplus.ma ou par téléphone au +212 674-007161.',
       ],
     },
   ],
