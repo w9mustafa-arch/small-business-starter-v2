@@ -159,7 +159,7 @@ services: [
       title: 'Support',
       links: [
         { label: 'Contact', href: '/contact' },
-        { label: 'Privacy', href: '/privacy' },
+        { label: 'Confidentialité', href: '/politique-de-confidentialite' },
         { label: 'Terms', href: '/terms' },
       ],
     },
