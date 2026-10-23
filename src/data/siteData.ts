@@ -17,7 +17,7 @@ export const siteData = {
   tagline: 'Livreur Marrakech 24h/24 et 7j/7 – Livraison rapide et fiable',
   description:
     'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
-  url: 'https://example.com',
+  url: 'https://www.livraisonplus.ma',
   locale: 'fr_FR',
 
   /** Business / contractor license number. Displayed in the header and footer
@@ -25,23 +25,21 @@ export const siteData = {
   license: 'MARRAKECH',
 
   // ── Contact ──────────────────────────────────────────────────────────────
-  email: 'hello@example.com',
+  email: 'contact@livraisonplus.ma',
   phoneForTel: '+212674007161',
   phoneFormatted: '+212 674-007161',
   address: {
-    lineOne: '123 Main Street',
-    lineTwo: 'Suite 100',
-    city: 'Denver',
-    state: 'CO',
-    zip: '80206',
-    country: 'US',
-    mapLink: 'https://maps.app.goo.gl/example',
+    lineOne: '',
+    lineTwo: '',
+    city: 'Marrakech',
+    state: 'Marrakech-Safi',
+    zip: '',
+    country: 'MA',
+    mapLink: 'https://maps.app.goo.gl/L35SPtbGktwwwFFW7?g_st=ac',
   },
   hours: [
-    { days: 'Monday - Friday', time: '7:00 AM - 6:00 PM' },
-    { days: 'Saturday', time: '8:00 AM - 2:00 PM' },
-    { days: 'Sunday', time: 'Closed' },
-  ],
+  { days: 'Tous les jours', time: '24h/24' },
+],
   emergencyService: '24/7 Emergency Service Available',
 
   // ── Social media (set to empty string to hide a link) ────────────────────
