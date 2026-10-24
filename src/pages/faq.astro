@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
 import { siteData } from '../data/siteData';
 import faqData from '../data/faqData.json';
 
@@ -214,34 +215,7 @@ const schema = {
     </div>
   </section>
 
-  <!-- ── CTA ───────────────────────────────────────────────────────────── -->
-  <section class="relative overflow-hidden bg-primary py-16 sm:py-20 lg:py-24">
-    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
-      <h2 class="font-heading text-h2 font-bold uppercase text-primary-fg">
-        Une autre question ?
-      </h2>
-      <p class="mx-auto mt-4 max-w-xl leading-relaxed text-primary-fg/80">
-        Vous n’avez pas trouvé votre réponse ? Écrivez-nous sur WhatsApp, nous vous répondons rapidement.
-      </p>
-
-      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-        >
-          Commander sur WhatsApp
-        </a>
-        <a
-          href={`tel:${siteData.phoneForTel}`}
-          class="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-primary-fg/30 px-8 py-3 text-base font-bold text-primary-fg transition-colors hover:border-primary-fg hover:bg-primary-fg/10"
-        >
-          Appeler {siteData.phoneFormatted}
-        </a>
-      </div>
-    </div>
-  </section>
+  <CTA />
 
   <Footer slot="footer" />
 </BaseLayout>
