@@ -63,6 +63,9 @@ export const siteData = {
 services: [
   {
     key: 'repas',
+    badge: 'Restaurants & fast-food',
+    points: ['Vous choisissez le restaurant', 'Livré à domicile, au riad ou à l’hôtel', 'Commande en un message WhatsApp'],
+    message: 'Bonjour, je souhaite me faire livrer un repas à Marrakech.',
     title: 'Livraison de repas à Marrakech',
     description:
       'Une envie de pizza, de tacos ou d’un dîner de restaurant ? Vous choisissez, nous récupérons la commande et la livrons chez vous, au bureau, au riad ou à l’hôtel.',
@@ -71,6 +74,9 @@ services: [
   },
   {
     key: 'courses',
+    badge: 'Supermarché',
+    points: ['Vous envoyez votre liste', 'Nous faisons les achats pour vous', 'Livré directement à votre porte'],
+    message: 'Bonjour, je souhaite faire livrer mes courses à Marrakech.',
     title: 'Courses et supermarché',
     description:
       'Pas le temps de faire les courses ? Envoyez votre liste : nous parcourons les rayons à votre place et livrons le tout à votre porte.',
@@ -79,6 +85,9 @@ services: [
   },
   {
     key: 'pharmacie',
+    badge: 'Pharmacie',
+    points: ['Nous vérifions la disponibilité', 'Nous achetons pour vous', 'Livré chez vous ou à l’hôtel'],
+    message: 'Bonjour, je souhaite me faire livrer un produit de pharmacie à Marrakech.',
     title: 'Pharmacie',
     description:
       'Besoin d’un produit de pharmacie sans sortir ? Dites-nous lequel : nous vérifions sa disponibilité, l’achetons et vous le livrons.',
@@ -87,6 +96,9 @@ services: [
   },
   {
     key: 'pressing',
+    badge: 'Aller-retour',
+    points: ['Dépôt de votre linge au pressing', 'Récupération quand il est prêt', 'Retour à domicile ou à l’hôtel'],
+    message: 'Bonjour, je souhaite organiser un dépôt ou une récupération de linge au pressing à Marrakech.',
     title: 'Pressing et blanchisserie',
     description:
       'Du linge à déposer ou à récupérer ? Nous faisons l’aller-retour avec le pressing, jusqu’à votre domicile ou votre hôtel.',
@@ -95,6 +107,9 @@ services: [
   },
   {
     key: 'cadeaux',
+    badge: 'Surprises',
+    points: ['Bouquets et cadeaux', 'Livrés à l’adresse du destinataire', 'Idéal pour un anniversaire'],
+    message: 'Bonjour, je souhaite faire livrer un bouquet ou un cadeau à Marrakech.',
     title: 'Fleurs et cadeaux',
     description:
       'Pour un anniversaire ou une surprise : donnez-nous l’adresse du destinataire, nous récupérons le bouquet ou le cadeau et le lui livrons.',
@@ -103,6 +118,9 @@ services: [
   },
   {
     key: 'coursier',
+    badge: 'Jour et nuit',
+    points: ['Colis et documents', 'Achats ou oublis à récupérer', 'Disponible 24h/24 et 7j/7'],
+    message: 'Bonjour, j’ai besoin d’un livreur à Marrakech pour récupérer et livrer quelque chose.',
     title: 'Livreur et coursier à la demande',
     description:
       'Un colis, un document, un oubli à rattraper ? Votre livreur à Marrakech file le récupérer et vous le rapporte, de jour comme de nuit.',
