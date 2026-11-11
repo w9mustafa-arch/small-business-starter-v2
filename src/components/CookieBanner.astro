@@ -1,0 +1,102 @@
+---
+/**
+ * À placer juste après <body>.
+ * - <noscript> Google Tag Manager
+ * - Bannière cookies : Accepter / Refuser (choix mémorisé dans localStorage)
+ * - Pour rouvrir la bannière : ajoutez l'attribut data-cookie-settings à n'importe quel lien/bouton.
+ */
+import { tracking } from '../config/tracking';
+---
+
+{tracking.gtmId && (
+  <noscript>
+    <iframe
+      src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtmId}`}
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
+  </noscript>
+)}
+
+{tracking.gtmId && (
+  <div
+    id="cookie-banner"
+    hidden
+    role="dialog"
+    aria-label="Gestion des cookies"
+    class="fixed inset-x-0 bottom-0 z-[100000] border-t border-border bg-background p-4 shadow-lg sm:p-5"
+  >
+    <div class="mx-auto flex max-w-site flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm leading-relaxed text-text-muted">
+        Nous utilisons des cookies pour mesurer l’audience du site et l’efficacité de nos publicités.
+        Vous pouvez les accepter ou les refuser.
+        <a href="/politique-de-confidentialite" class="font-semibold text-primary underline">En savoir plus</a>
+      </p>
+      <div class="flex gap-3 sm:shrink-0">
+        <button
+          type="button"
+          data-cookie-choice="denied"
+          class="inline-flex min-h-11 flex-1 items-center justify-center rounded-md border-2 border-primary px-5 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-primary-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-none"
+        >
+          Refuser
+        </button>
+        <button
+          type="button"
+          data-cookie-choice="granted"
+          class="inline-flex min-h-11 flex-1 items-center justify-center rounded-md border-2 border-primary bg-primary px-5 py-2 text-sm font-bold text-primary-fg transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-none"
+        >
+          Accepter
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+{tracking.gtmId && (
+  <script is:inline>
+    (function () {
+      if (window.__cookieConsentInit) return;
+      window.__cookieConsentInit = true;
+
+      var KEY = 'cookie_consent';
+      function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+      function banner() { return document.getElementById('cookie-banner'); }
+      function sync() {
+        var b = banner();
+        if (b) b.hidden = !!get();
+      }
+      function update(v) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('consent', 'update', {
+            ad_storage: v,
+            ad_user_data: v,
+            ad_personalization: v,
+            analytics_storage: v,
+          });
+        }
+      }
+
+      document.addEventListener('click', function (e) {
+        var c = e.target.closest && e.target.closest('[data-cookie-choice]');
+        if (c) {
+          var v = c.getAttribute('data-cookie-choice');
+          set(v);
+          update(v);
+          var b = banner();
+          if (b) b.hidden = true;
+          return;
+        }
+        if (e.target.closest && e.target.closest('[data-cookie-settings]')) {
+          e.preventDefault();
+          var b2 = banner();
+          if (b2) b2.hidden = false;
+        }
+      });
+
+      document.addEventListener('astro:page-load', sync);
+      sync();
+    })();
+  </script>
+)}

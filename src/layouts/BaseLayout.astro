@@ -12,6 +12,8 @@ import '../styles/global.css';
 import { brand } from '../config/brand';
 import { siteData } from '../data/siteData';
 import FloatingContact from '../components/FloatingContact.astro';
+import TrackingHead from '../components/TrackingHead.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
   title?: string;
@@ -36,6 +38,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Tracking: Consent Mode + Google Tag Manager -->
+    <TrackingHead />
 
     <link rel="canonical" href={canonicalURL} />
     <title>{pageTitle}</title>
@@ -83,6 +88,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
   </head>
 
   <body class="bg-background text-text font-body antialiased">
+    <CookieBanner />
     <a
       class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:bg-primary focus:text-primary-fg focus:px-4 focus:py-2 focus:rounded-md"
       href="#main"

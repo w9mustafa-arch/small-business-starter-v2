@@ -1,0 +1,66 @@
+---
+/**
+ * À placer dans <head>.
+ * 1) Consent Mode v2 : tout est refusé par défaut (ordre important : AVANT GTM).
+ * 2) Si le visiteur avait déjà accepté, le consentement est restauré.
+ * 3) Chargement de Google Tag Manager.
+ * 4) Événements WhatsApp / téléphone envoyés au dataLayer.
+ */
+import { tracking } from '../config/tracking';
+---
+
+{tracking.gtmId && (
+  <script is:inline define:vars={{ gtmId: tracking.gtmId }}>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500,
+    });
+
+    try {
+      if (localStorage.getItem('cookie_consent') === 'granted') {
+        window.gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted',
+        });
+      }
+    } catch (e) {}
+
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', gtmId);
+  </script>
+)}
+
+{tracking.gtmId && (
+  <script is:inline>
+    if (!window.__clickTrackingInit) {
+      window.__clickTrackingInit = true;
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        window.dataLayer = window.dataLayer || [];
+        if (h.indexOf('wa.me') > -1 || h.indexOf('api.whatsapp.com') > -1) {
+          window.dataLayer.push({ event: 'whatsapp_click', link_url: h });
+        } else if (h.indexOf('tel:') === 0) {
+          window.dataLayer.push({ event: 'phone_click' });
+        }
+      });
+    }
+  </script>
+)}
