@@ -62,6 +62,7 @@ export const siteData = {
 
 services: [
   {
+    key: 'repas',
     title: 'Livraison de repas à Marrakech',
     description:
       'Une envie de pizza, de tacos ou d’un dîner de restaurant ? Vous choisissez, nous récupérons la commande et la livrons chez vous, au bureau, au riad ou à l’hôtel.',
@@ -69,6 +70,7 @@ services: [
     href: 'https://wa.me/212674007161',
   },
   {
+    key: 'courses',
     title: 'Courses et supermarché',
     description:
       'Pas le temps de faire les courses ? Envoyez votre liste : nous parcourons les rayons à votre place et livrons le tout à votre porte.',
@@ -76,6 +78,7 @@ services: [
     href: 'https://wa.me/212674007161',
   },
   {
+    key: 'pharmacie',
     title: 'Pharmacie',
     description:
       'Besoin d’un produit de pharmacie sans sortir ? Dites-nous lequel : nous vérifions sa disponibilité, l’achetons et vous le livrons.',
@@ -83,6 +86,7 @@ services: [
     href: 'https://wa.me/212674007161',
   },
   {
+    key: 'pressing',
     title: 'Pressing et blanchisserie',
     description:
       'Du linge à déposer ou à récupérer ? Nous faisons l’aller-retour avec le pressing, jusqu’à votre domicile ou votre hôtel.',
@@ -90,6 +94,7 @@ services: [
     href: 'https://wa.me/212674007161',
   },
   {
+    key: 'cadeaux',
     title: 'Fleurs et cadeaux',
     description:
       'Pour un anniversaire ou une surprise : donnez-nous l’adresse du destinataire, nous récupérons le bouquet ou le cadeau et le lui livrons.',
@@ -97,6 +102,7 @@ services: [
     href: 'https://wa.me/212674007161',
   },
   {
+    key: 'coursier',
     title: 'Livreur et coursier à la demande',
     description:
       'Un colis, un document, un oubli à rattraper ? Votre livreur à Marrakech file le récupérer et vous le rapporte, de jour comme de nuit.',

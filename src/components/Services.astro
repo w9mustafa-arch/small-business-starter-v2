@@ -1,7 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { siteData } from '../data/siteData';
 
 interface ServiceItem {
+  key?: string;
   title: string;
   description: string;
   href?: string;
@@ -21,6 +24,25 @@ const {
   description = 'Repas, courses, colis et bien plus, livrés à Marrakech.',
   services = siteData.services,
 } = Astro.props;
+
+// Photos des cartes : déposez une image dans src/assets/images/services/
+// dont le nom correspond à la clé du service (ex. pharmacie.jpg, pressing.jpg).
+const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/images/services/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true },
+);
+const imageByKey: Record<string, ImageMetadata> = {};
+for (const [path, mod] of Object.entries(serviceImages)) {
+  const name = path.split('/').pop()!.replace(/\.[^.]+$/, '');
+  imageByKey[name] = mod.default;
+}
+
+// Icônes de secours pour les services sans photo.
+const icons: Record<string, string> = {
+  pharmacie: 'M9 3h6v6h6v6h-6v6H9v-6H3V9h6z',
+  pressing:
+    'M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z',
+};
 ---
 
 <section class="bg-surface py-section">
@@ -40,35 +62,80 @@ const {
     </div>
 
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
-      {services.map((service) => (
-        <li class="h-full">
-          <div class="flex h-full flex-col rounded-lg border border-border bg-background p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
-            <h3 class="font-heading text-h3 font-semibold text-text">
-              {service.title}
-            </h3>
-
-            <p class="mt-2 flex-1 text-sm leading-relaxed text-text-muted">
-              {service.description}
-            </p>
-
-            <a
-              href={service.href || 'https://wa.me/212674007161'}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+      {services.map((service) => {
+        const image = service.key ? imageByKey[service.key] : undefined;
+        const icon = service.key ? icons[service.key] : undefined;
+        return (
+          <li class="h-full">
+            <div
+              class:list={[
+                'group relative isolate flex h-full min-h-[22rem] flex-col justify-end overflow-hidden rounded-lg p-6 shadow-sm transition-shadow duration-200 hover:shadow-lg',
+                image ? 'bg-dark' : 'bg-linear-to-br from-primary to-dark',
+              ]}
             >
-              {service.buttonText || 'Commander maintenant'}
+              {image && (
+                <>
+                  <Image
+                    src={image}
+                    alt=""
+                    aria-hidden="true"
+                    widths={[480, 720, 960]}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    loading="lazy"
+                    class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  />
+                  <div
+                    class="absolute inset-0 -z-10 bg-linear-to-t from-dark/90 via-dark/55 to-dark/10"
+                    aria-hidden="true"
+                  />
+                </>
+              )}
 
-              <span
-                class="transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
+              {!image && icon && (
+                <div
+                  class="absolute left-6 top-6 flex size-14 items-center justify-center rounded-full bg-white/15 text-white"
+                  aria-hidden="true"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="size-7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  >
+                    <path d={icon} />
+                  </svg>
+                </div>
+              )}
+
+              <h3 class="font-heading text-h3 font-semibold text-white">
+                {service.title}
+              </h3>
+
+              <p class="mt-2 text-sm leading-relaxed text-white/85">
+                {service.description}
+              </p>
+
+              <a
+                href={service.href || 'https://wa.me/212674007161'}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group/btn mt-5 inline-flex w-fit items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-accent hover:text-accent-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
-                &rarr;
-              </span>
-            </a>
-          </div>
-        </li>
-      ))}
+                {service.buttonText || 'Commander maintenant'}
+                <span
+                  class="transition-transform group-hover/btn:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  &rarr;
+                </span>
+              </a>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   </div>
 </section>
