@@ -12,11 +12,11 @@ import CTA from '../components/CTA.astro';
 import { siteData } from '../data/siteData';
 
 const metaDescription =
-  'Livreur Marrakech 24h/24 et 7j/7 : livraison Marrakech de repas, courses, pharmacie et colis à domicile, au riad ou à l’hôtel. Commandez sur WhatsApp.';
+  'Un message WhatsApp, et votre livreur à Marrakech récupère repas, courses, pharmacie ou colis et les livre chez vous, au riad ou à l’hôtel. 24h/24, 7j/7.';
 ---
 
 <BaseLayout
-  title="Livreur Marrakech 24h/24 | Livraison Marrakech"
+  title="Livreur Marrakech 24h/24 : repas, courses, colis"
   description={metaDescription}
   schema={{
     '@context': 'https://schema.org',
@@ -46,45 +46,45 @@ const metaDescription =
   <Header slot="header" />
 
   <Hero
-    topper="Livreur Marrakech · 24h/24 · 7j/7"
-    heading="Livreur Marrakech 24h/24 : livraison rapide"
-    description="Besoin d’un livreur à Marrakech ? Nous récupérons vos repas, courses, produits de pharmacie et colis, et les livrons chez vous, au riad, à l’hôtel ou à la villa. Un message WhatsApp suffit."
-    secondaryLabel="Nos services de livraison"
+    topper="Livreur à Marrakech · 24h/24 · 7j/7"
+    heading="Votre livreur à Marrakech : un message, et c’est livré"
+    description="Restaurant, supermarché, pharmacie, pressing ou fleuriste : dites-nous ce qu’il vous faut et où vous êtes. Nous récupérons, nous livrons, à domicile, au riad, à l’hôtel ou à la villa."
+    secondaryLabel="Voir ce que nous livrons"
     imageAlt="Livreur à moto avec un sac isotherme bleu, livraison à Marrakech en soirée"
   />
-  <TrustBar />
+  <TrustBar title="Vos enseignes préférées, livrées chez vous" />
   <Services
-    topper="Nos services"
-    heading="Livraison Marrakech : nos services"
-    description="Un seul livreur à Marrakech pour vos repas, courses, pharmacie, pressing, fleurs et colis."
+    topper="Ce que nous livrons"
+    heading="Livraison Marrakech : du repas du soir au cadeau de dernière minute"
+    description="Vous nous dites quoi, où et quand. Nous nous chargeons du reste."
   />
   <About
     topper="Qui sommes-nous"
-    heading="Votre livreur à Marrakech, jour et nuit"
+    heading="Un livreur à Marrakech sur qui compter"
     body={[
-      'Livreur Express est un service de livraison à Marrakech : nous récupérons votre commande chez le restaurant, le supermarché, la pharmacie ou la boutique, puis nous la livrons à l’adresse de votre choix.',
-      'Notre équipe de livreurs connaît les quartiers de la ville et les ruelles de la médina. Vous écrivez sur WhatsApp, nous nous occupons du reste.',
+      'Livreur Express est né d’un besoin simple : se faire livrer vite, sans application à installer ni compte à créer.',
+      'Notre équipe connaît les quartiers de Marrakech et les ruelles de la médina. Vous écrivez sur WhatsApp, nous confirmons, nous livrons.',
     ]}
     benefits={[
-      'Livreur à Marrakech 24h/24 et 7j/7',
-      'Commande simple par WhatsApp',
+      'Réponse sur WhatsApp, à toute heure',
       'Livraison à domicile, au bureau, au riad ou à l’hôtel',
+      'Des livreurs qui connaissent la médina',
     ]}
     ctaLabel="Découvrir nos services"
     imageAlt="Livreur Express remet une commande à une cliente à Marrakech"
   />
   <Reviews
     topper="Avis clients"
-    heading="Ils ont choisi notre livreur à Marrakech"
+    heading="Ponctuel, réactif, sérieux : l’avis de nos clients"
   />
   <Gallery
-    topper="Nos livraisons"
-    heading="Livraison à Marrakech : nos commandes"
-    description="Repas, courses, fleurs et cadeaux livrés à domicile, au riad ou à l’hôtel par votre livreur à Marrakech."
+    topper="En images"
+    heading="Livraison Marrakech : vos commandes en route"
+    description="Repas, courses, fleurs et cadeaux : un aperçu de ce que nous livrons au quotidien à Marrakech."
   />
   <CTA
     title="Besoin d’un livreur à Marrakech ?"
-    description="Envoyez votre demande sur WhatsApp. Réponse rapide, 24h/24 et 7j/7."
+    description="Décrivez votre demande sur WhatsApp et partagez votre position. Nous vous répondons à toute heure."
   />
 
   <Footer slot="footer" />

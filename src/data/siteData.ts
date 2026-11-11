@@ -14,7 +14,7 @@
 export const siteData = {
   // ── Business identity ────────────────────────────────────────────────────
   name: 'Livreur Express',
-  tagline: 'Livreur Marrakech 24h/24 et 7j/7 – Livraison rapide et fiable',
+  tagline: 'Votre livreur à Marrakech, 24h/24 et 7j/7. Repas, courses, pharmacie et colis livrés là où vous êtes.',
   description:
     'Livreur Express : votre livreur à Marrakech, 24h/24 et 7j/7. Repas, courses, pharmacie, pressing, fleurs et colis livrés à domicile, au riad ou à l’hôtel.',
   url: 'https://www.livraisonplus.ma',
@@ -64,42 +64,42 @@ services: [
   {
     title: 'Livraison de repas à Marrakech',
     description:
-      'Choisissez votre restaurant et vos plats sur WhatsApp. Votre livreur à Marrakech récupère la commande et la livre à domicile, au bureau, au riad ou à l’hôtel.',
-    buttonText: 'Commander un repas',
+      'Une envie de pizza, de tacos ou d’un dîner de restaurant ? Vous choisissez, nous récupérons la commande et la livrons chez vous, au bureau, au riad ou à l’hôtel.',
+    buttonText: 'Commander mon repas',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Courses et supermarché',
     description:
-      'Envoyez votre liste de courses. Nous achetons vos produits et assurons la livraison à Marrakech chez vous, à votre villa ou à votre hôtel.',
+      'Pas le temps de faire les courses ? Envoyez votre liste : nous parcourons les rayons à votre place et livrons le tout à votre porte.',
     buttonText: 'Envoyer ma liste',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Pharmacie',
     description:
-      'Indiquez les produits de pharmacie dont vous avez besoin. Nous vérifions leur disponibilité, les achetons et les livrons rapidement.',
+      'Besoin d’un produit de pharmacie sans sortir ? Dites-nous lequel : nous vérifions sa disponibilité, l’achetons et vous le livrons.',
     buttonText: 'Demander un produit',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Pressing et blanchisserie',
     description:
-      'Nous déposons votre linge au pressing, le récupérons et vous le rapportons à domicile ou à l’hôtel, partout à Marrakech.',
+      'Du linge à déposer ou à récupérer ? Nous faisons l’aller-retour avec le pressing, jusqu’à votre domicile ou votre hôtel.',
     buttonText: 'Organiser ma demande',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Fleurs et cadeaux',
     description:
-      'Envoyez-nous votre demande et l’adresse du destinataire. Nous récupérons le bouquet ou le cadeau et le livrons à Marrakech.',
+      'Pour un anniversaire ou une surprise : donnez-nous l’adresse du destinataire, nous récupérons le bouquet ou le cadeau et le lui livrons.',
     buttonText: 'Faire livrer un cadeau',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Livreur et coursier à la demande',
     description:
-      'Un colis, un document ou un achat à récupérer ? Votre livreur à Marrakech s’en charge, de jour comme de nuit. Décrivez votre demande sur WhatsApp.',
+      'Un colis, un document, un oubli à rattraper ? Votre livreur à Marrakech file le récupérer et vous le rapporte, de jour comme de nuit.',
     buttonText: 'Décrire ma demande',
     href: 'https://wa.me/212674007161',
   },

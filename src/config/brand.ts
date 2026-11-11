@@ -15,8 +15,8 @@
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
   name: 'Livreur Express',
-  tagline: 'Livreur Marrakech 24h/24 : livraison rapide',
-  description: 'Votre livreur à Marrakech, 24h/24 et 7j/7 : repas, courses, pharmacie et colis livrés chez vous, au riad ou à l’hôtel. Commandez sur WhatsApp.',
+  tagline: 'Votre livreur à Marrakech : un message, et c’est livré',
+  description: 'Un message WhatsApp, et votre livreur à Marrakech récupère repas, courses, pharmacie ou colis et les livre chez vous, au riad ou à l’hôtel. 24h/24, 7j/7.',
   url: 'https://www.livraisonplus.ma',
   locale: 'fr_FR',
 
