@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * POLITIQUE DE CONFIDENTIALITÉ — Livraison Plus
+ * POLITIQUE DE CONFIDENTIALITÉ — Livreur Express
  * ─────────────────────────────────────────────────────────────────────────────
  * Chaque section contient un titre et un tableau de paragraphes.
  * La date de mise à jour est affichée en haut de la page.
@@ -8,19 +8,19 @@
  */
 
 export const privacyPolicy = {
-  effectiveDate: '23 octobre 2026',
+  effectiveDate: '11 novembre 2026',
 
   sections: [
     {
       heading: '1. Introduction',
       content: [
-        'Chez Livraison Plus, nous accordons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique quelles informations nous collectons, comment nous les utilisons et quels sont vos droits.',
+        'Chez Livreur Express, nous accordons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique quelles informations nous collectons, comment nous les utilisons et quels sont vos droits.',
       ],
     },
     {
       heading: '2. Identité du responsable du traitement',
       content: [
-        'Nom de l’entreprise : Livraison Plus',
+        'Nom de l’entreprise : Livreur Express',
         'Adresse : Marrakech, Maroc',
         'E-mail : contact@livraisonplus.ma',
         'Téléphone : +212 674-007161',
@@ -51,15 +51,16 @@ export const privacyPolicy = {
     {
       heading: '6. Partage des données',
       content: [
-        'Livraison Plus ne vend pas vos données personnelles. Elles peuvent être communiquées, dans la mesure nécessaire, à des prestataires techniques intervenant dans l’hébergement, la maintenance, l’analyse d’audience ou la gestion publicitaire du site.',
+        'Livreur Express ne vend pas vos données personnelles. Elles peuvent être communiquées, dans la mesure nécessaire, à des prestataires techniques intervenant dans l’hébergement, la maintenance, l’analyse d’audience ou la gestion publicitaire du site.',
         'Les plateformes publicitaires, telles que Google ou Meta, peuvent traiter certaines données lorsque leurs outils sont utilisés et lorsque les conditions de consentement applicables sont remplies.',
       ],
     },
     {
       heading: '7. Cookies',
       content: [
-        'Le site peut utiliser des cookies ou technologies similaires pour mesurer l’audience, mémoriser certaines préférences et, le cas échéant, mesurer ou optimiser les campagnes marketing.',
+        'Le site peut utiliser des cookies ou technologies similaires pour mesurer l’audience, mémoriser certaines préférences et mesurer ou optimiser nos campagnes publicitaires, notamment à l’aide de Google Tag Manager, Google Analytics et Google Ads.',
         'Lorsque cela est requis, votre consentement est demandé avant le dépôt de cookies non essentiels. Vous pouvez modifier vos choix à partir du dispositif de gestion des cookies lorsqu’il est disponible, ou configurer votre navigateur.',
+        'Les cookies de mesure d’audience et de publicité ne sont déposés qu’après votre accord. Vous pouvez accepter ou refuser ces cookies via le bandeau affiché lors de votre première visite.',
       ],
     },
     {

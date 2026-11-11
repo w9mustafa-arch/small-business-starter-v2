@@ -1,8 +1,8 @@
-# Livraison Plus
+# Livreur Express
 
-> Service indépendant de livraison à Marrakech, disponible 24h/24 et 7j/7.
+> Livreur Marrakech 24h/24 et 7j/7 : service indépendant de livraison et de courses à Marrakech.
 
-Livraison Plus propose des services de livraison et d'achat à Marrakech, au Maroc.
+Livreur Express propose des services de livraison et d'achat à Marrakech, au Maroc.
 
 ## Services
 
@@ -22,5 +22,5 @@ Marrakech et les zones environnantes, selon la destination et la disponibilité.
 
 Pour demander une livraison, contactez-nous sur WhatsApp.
 
-- [Site officiel de Livraison Plus](https://www.livraisonplus.ma/)
+- [Site officiel de Livreur Express](https://www.livraisonplus.ma/)
 - [Commander sur WhatsApp](https://wa.me/212674007161)

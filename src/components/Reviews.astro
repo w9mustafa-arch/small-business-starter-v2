@@ -34,7 +34,7 @@ const {
       {reviews.map(({ quote, name, location, rating = 5 }) => (
         <li class="flex flex-col rounded-lg border border-border bg-background p-6 shadow-sm">
           <!-- Stars -->
-          <div class="mb-4 flex gap-0.5" role="img" aria-label={`Rated ${rating} out of 5 stars`}>
+          <div class="mb-4 flex gap-0.5" role="img" aria-label={`Note : ${rating} sur 5`}>
             {Array.from({ length: 5 }).map((_, i) => (
               <svg
                 class:list={['size-5', i < rating ? 'text-stars' : 'text-border']}

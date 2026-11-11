@@ -11,7 +11,7 @@ test.describe('Homepage', () => {
 
   test('has correct page title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/LIVRAISON PLUS/i);
+    await expect(page).toHaveTitle(/Livreur/i);
   });
 
   test('has meta description', async ({ page }) => {

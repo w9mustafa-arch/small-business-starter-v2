@@ -13,10 +13,10 @@
 
 export const siteData = {
   // ── Business identity ────────────────────────────────────────────────────
-  name: 'LIVRAISON PLUS',
+  name: 'Livreur Express',
   tagline: 'Livreur Marrakech 24h/24 et 7j/7 – Livraison rapide et fiable',
   description:
-    'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
+    'Livreur Express : votre livreur à Marrakech, 24h/24 et 7j/7. Repas, courses, pharmacie, pressing, fleurs et colis livrés à domicile, au riad ou à l’hôtel.',
   url: 'https://www.livraisonplus.ma',
   locale: 'fr_FR',
 
@@ -62,44 +62,44 @@ export const siteData = {
 
 services: [
   {
-    title: 'Livraison de repas',
+    title: 'Livraison de repas à Marrakech',
     description:
-      'Indiquez le restaurant et vos plats. Nous récupérons votre commande et la livrons à domicile, au bureau ou à l’hôtel.',
+      'Choisissez votre restaurant et vos plats sur WhatsApp. Votre livreur à Marrakech récupère la commande et la livre à domicile, au bureau, au riad ou à l’hôtel.',
     buttonText: 'Commander un repas',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Courses & supermarché',
+    title: 'Courses et supermarché',
     description:
-      'Envoyez votre liste de courses. Nous achetons les produits demandés et les livrons à votre domicile ou à votre hôtel.',
+      'Envoyez votre liste de courses. Nous achetons vos produits et assurons la livraison à Marrakech chez vous, à votre villa ou à votre hôtel.',
     buttonText: 'Envoyer ma liste',
     href: 'https://wa.me/212674007161',
   },
   {
     title: 'Pharmacie',
     description:
-      'Envoyez le nom des produits souhaités. Nous vérifions leur disponibilité en pharmacie et organisons la livraison.',
+      'Indiquez les produits de pharmacie dont vous avez besoin. Nous vérifions leur disponibilité, les achetons et les livrons rapidement.',
     buttonText: 'Demander un produit',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Pressing',
+    title: 'Pressing et blanchisserie',
     description:
-      'Nous récupérons ou déposons votre linge au pressing et assurons son transport entre le pressing et votre domicile ou hôtel.',
+      'Nous déposons votre linge au pressing, le récupérons et vous le rapportons à domicile ou à l’hôtel, partout à Marrakech.',
     buttonText: 'Organiser ma demande',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Fleurs & cadeaux',
+    title: 'Fleurs et cadeaux',
     description:
-      'Envoyez-nous votre demande et l’adresse de livraison. Nous récupérons votre bouquet ou cadeau et le livrons au destinataire.',
+      'Envoyez-nous votre demande et l’adresse du destinataire. Nous récupérons le bouquet ou le cadeau et le livrons à Marrakech.',
     buttonText: 'Faire livrer un cadeau',
     href: 'https://wa.me/212674007161',
   },
   {
-    title: 'Coursier à la demande',
+    title: 'Livreur et coursier à la demande',
     description:
-      'Un colis, un document ou un achat à récupérer ? Contactez-nous sur WhatsApp pour organiser votre livraison à Marrakech.',
+      'Un colis, un document ou un achat à récupérer ? Votre livreur à Marrakech s’en charge, de jour comme de nuit. Décrivez votre demande sur WhatsApp.',
     buttonText: 'Décrire ma demande',
     href: 'https://wa.me/212674007161',
   },
@@ -121,14 +121,10 @@ services: [
   // ── About page ───────────────────────────────────────────────────────────
   about: {
     story: [
-      'What started as a one-person operation has grown into a trusted local team. For over 15 years, we\'ve served homeowners and businesses with reliable, high-quality work — and we plan to keep doing just that for decades to come.',
-      'Every member of our crew is licensed, insured, and background-checked. We treat your property with the same care we\'d give our own, and we stand behind every job with a satisfaction guarantee.',
+      'Livreur Express est née à Marrakech d’un besoin simple : se faire livrer vite, sans complications.',
+      'Notre équipe de livreurs connaît les quartiers de la ville et les ruelles de la médina. Vous nous écrivez sur WhatsApp, nous récupérons votre commande et la livrons où vous voulez, de jour comme de nuit.',
     ],
-    team: [
-      { name: 'John Smith', role: 'Founder & Lead Technician', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80' },
-      { name: 'Maria Garcia', role: 'Operations Manager', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
-      { name: 'David Chen', role: 'Senior Technician', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },
-    ],
+    team: [],
   },
 
 // ── Brands strip (homepage) ──────────────────────────────────────────────
@@ -147,7 +143,7 @@ services: [
   // ── Footer nav columns ──────────────────────────────────────────────────
   footerNav: [
     {
-      title: 'Company',
+      title: 'Entreprise',
       links: [
         { label: 'À propos', href: '/a-propos' },
         { label: 'Services', href: '/services' },
@@ -156,7 +152,7 @@ services: [
       ],
     },
     {
-      title: 'Support',
+      title: 'Assistance',
       links: [
         { label: 'Contactez-nous', href: '/contactez-nous' },
         { label: 'Confidentialité', href: '/politique-de-confidentialite' },

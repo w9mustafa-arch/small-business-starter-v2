@@ -1,19 +1,20 @@
 {
   "specVersion": "1.0",
   "host": {
-    "displayName": "Livraison Plus",
+    "displayName": "Livreur Express",
     "documentationUrl": "https://www.livraisonplus.ma/"
   },
   "entries": [
     {
       "identifier": "urn:air:livraisonplus.ma:content:site-info",
-      "displayName": "Livraison Plus - Services de livraison à Marrakech",
+      "displayName": "Livreur Express - Livreur et livraison à Marrakech",
       "type": "text/markdown; charset=utf-8; profile=\"urn:ard:document\"",
       "url": "https://www.livraisonplus.ma/llms.txt",
-      "description": "Informations sur Livraison Plus, un service indépendant de livraison et d'achat à Marrakech, au Maroc. Les clients peuvent demander des livraisons de repas, de courses, de produits de pharmacie, de colis, de documents, de fleurs et de cadeaux, ainsi que des achats effectués pour leur compte.",
+      "description": "Informations sur Livreur Express, un service indépendant de livraison et d'achat à Marrakech, au Maroc. Les clients peuvent demander des livraisons de repas, de courses, de produits de pharmacie, de colis, de documents, de fleurs et de cadeaux, ainsi que des achats effectués pour leur compte.",
       "tags": [
-        "Livraison Plus",
+        "Livreur Express",
         "Livreur Marrakech",
+        "Livraison Marrakech",
         "Service de livraison",
         "Livraison de repas",
         "Courses et supermarché",
@@ -27,10 +28,10 @@
       ],
       "representativeQueries": [
         "Comment trouver un livreur à Marrakech ?",
-        "Quels services propose Livraison Plus à Marrakech ?",
+        "Quels services propose Livreur Express à Marrakech ?",
         "Comment commander une livraison à Marrakech ?",
         "Où trouver un service de courses et d'achats à Marrakech ?",
-        "Comment contacter Livraison Plus sur WhatsApp ?"
+        "Comment contacter Livreur Express sur WhatsApp ?"
       ]
     }
   ]

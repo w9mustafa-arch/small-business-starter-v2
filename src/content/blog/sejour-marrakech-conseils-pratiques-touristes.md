@@ -1,7 +1,7 @@
 ---
 title: "Séjour à Marrakech : 10 conseils pratiques pour bien préparer votre voyage"
 description: "Quand partir, où dormir, comment se déplacer, que manger : nos conseils pour réussir votre séjour à Marrakech, de la médina à votre riad."
-author: Livraison Plus
+author: Livreur Express
 date: 2026-10-24
 tags: [marrakech, voyage, conseils, touristes]
 draft: false
@@ -61,9 +61,9 @@ C'est un détail que beaucoup de voyageurs découvrent trop tard : à Marrakech,
 
 Un conseil : dans la médina, envoyez toujours votre **position WhatsApp** avec le nom du riad. Cela évite de se perdre dans les ruelles et accélère la livraison.
 
-## Besoin d'un coup de main pendant votre séjour ?
+## Besoin d'un livreur à Marrakech pendant votre séjour ?
 
-**Livraison Plus** est disponible 24h/24 et 7j/7 à Marrakech : repas, courses, pharmacie, pressing, fleurs et cadeaux. Il suffit de nous écrire sur WhatsApp, de décrire votre demande et de partager votre position.
+**Livreur Express**, votre livreur à Marrakech, est disponible 24h/24 et 7j/7 à Marrakech : repas, courses, pharmacie, pressing, fleurs et cadeaux. Il suffit de nous écrire sur WhatsApp, de décrire votre demande et de partager votre position.
 
 [Commander sur WhatsApp](https://wa.me/212674007161?text=Bonjour%2C%20je%20s%C3%A9journe%20%C3%A0%20Marrakech%20et%20je%20souhaite%20une%20livraison.)
 

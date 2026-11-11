@@ -9,17 +9,20 @@ import About from '../components/About.astro';
 import Reviews from '../components/Reviews.astro';
 import Gallery from '../components/Gallery.astro';
 import CTA from '../components/CTA.astro';
-import { brand } from '../config/brand';
 import { siteData } from '../data/siteData';
+
+const metaDescription =
+  'Livreur Marrakech 24h/24 et 7j/7 : livraison Marrakech de repas, courses, pharmacie et colis à domicile, au riad ou à l’hôtel. Commandez sur WhatsApp.';
 ---
 
 <BaseLayout
-  title={brand.name}
-  description={brand.description}
+  title="Livreur Marrakech 24h/24 | Livraison Marrakech"
+  description={metaDescription}
   schema={{
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: siteData.name,
+    description: metaDescription,
     telephone: siteData.phoneForTel,
     email: siteData.email,
     address: {
@@ -30,18 +33,59 @@ import { siteData } from '../data/siteData';
       postalCode: siteData.address.zip,
       addressCountry: siteData.address.country,
     },
+    areaServed: { '@type': 'City', name: 'Marrakech' },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59',
+    },
     url: siteData.url,
   }}
 >
   <Header slot="header" />
 
-  <Hero />
+  <Hero
+    topper="Livreur Marrakech · 24h/24 · 7j/7"
+    heading="Livreur Marrakech 24h/24 : livraison rapide"
+    description="Besoin d’un livreur à Marrakech ? Nous récupérons vos repas, courses, produits de pharmacie et colis, et les livrons chez vous, au riad, à l’hôtel ou à la villa. Un message WhatsApp suffit."
+    secondaryLabel="Nos services de livraison"
+    imageAlt="Livreur à moto avec un sac isotherme bleu, livraison à Marrakech en soirée"
+  />
   <TrustBar />
-  <Services />
-  <About />
-  <Reviews />
-  <Gallery />
-  <CTA />
+  <Services
+    topper="Nos services"
+    heading="Livraison Marrakech : nos services"
+    description="Un seul livreur à Marrakech pour vos repas, courses, pharmacie, pressing, fleurs et colis."
+  />
+  <About
+    topper="Qui sommes-nous"
+    heading="Votre livreur à Marrakech, jour et nuit"
+    body={[
+      'Livreur Express est un service de livraison à Marrakech : nous récupérons votre commande chez le restaurant, le supermarché, la pharmacie ou la boutique, puis nous la livrons à l’adresse de votre choix.',
+      'Notre équipe de livreurs connaît les quartiers de la ville et les ruelles de la médina. Vous écrivez sur WhatsApp, nous nous occupons du reste.',
+    ]}
+    benefits={[
+      'Livreur à Marrakech 24h/24 et 7j/7',
+      'Commande simple par WhatsApp',
+      'Livraison à domicile, au bureau, au riad ou à l’hôtel',
+    ]}
+    ctaLabel="Découvrir nos services"
+    imageAlt="Livreur Express remet une commande à une cliente à Marrakech"
+  />
+  <Reviews
+    topper="Avis clients"
+    heading="Ils ont choisi notre livreur à Marrakech"
+  />
+  <Gallery
+    topper="Nos livraisons"
+    heading="Livraison à Marrakech : nos commandes"
+    description="Repas, courses, fleurs et cadeaux livrés à domicile, au riad ou à l’hôtel par votre livreur à Marrakech."
+  />
+  <CTA
+    title="Besoin d’un livreur à Marrakech ?"
+    description="Envoyez votre demande sur WhatsApp. Réponse rapide, 24h/24 et 7j/7."
+  />
 
   <Footer slot="footer" />
 </BaseLayout>
